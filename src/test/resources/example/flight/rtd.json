@@ -1,0 +1,71 @@
+{"flight":
+	{
+	    "version": "2",
+	    "fosPartition": "AA",
+	    "event": "RTD",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-18T20:35:04.0000000",
+	        "fltHubTimeStamp": "2020-05-18T20:35:07.0000000"
+	    },
+	    "trackingID": "414d512046484d5150433120202020205eb4ca9b22326eea",
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "dupDepStaNum": "1",
+	        "fltNum": "1469",
+	        "fltOrgDate": "2020-05-18",
+	        "depSta": "DFW"
+	    },
+	    "leg": {
+	        "status": {
+	            "arr": "I",
+	            "paxStatus": "Delayed: Returned to gate",
+	            "dep": "O",
+	            "leg": "G"
+	        },
+	        "stations": {
+	            "arr": "DFW",
+	            "dupArrStaNum": "1",
+	            "originalArr": "RSW"
+	        },
+	        "linkage": {
+	            "nextLegFltNum": "1469",
+	            "nextLegOrgDate": "2020-05-18",
+	            "nextLegFltDupCode": "0",
+	            "priorLegOrgDate": "2020-05-18",
+	            "priorLegFltDupCode": "0",
+	            "priorLegFltNum": "1154"
+	        },
+	        "equipment": {
+	            "skdEquipType": "738D",
+	            "assignedTail": "3HX",
+	            "skdNumericEquipType": "B9",
+	            "assignedEquipType": "738K",
+	            "assignedNumericEquipType": "45"
+	        },
+	        "departureArrival": {
+	            "depTerminal": "A",
+	            "depGate": "A14",
+	            "arrGate": "",
+	            "arrTerminal": ""
+	        },
+	        "times": {
+	            "legArrDOM": "2020-05-18",
+	            "STA": "2020-05-18T22:48:00.0000000",
+	            "STD": "2020-05-18T20:15:00.0000000",
+	            "actualIn": "2020-05-18T20:27:00.0000000",
+	            "arrGMTAdjustment": "-PT5H0M",
+	            "actualOut": "2020-05-18T20:05:00.0000000",
+	            "legDepDOM": "2020-05-18",
+	            "LTA": "2020-05-18T20:27:00.0000000",
+	            "LTD": "2020-05-18T20:05:00.0000000",
+	            "depGMTAdjustment": "-PT5H0M"
+	        },
+	        "planners": {
+	            "dispDesk": "FD39"
+	        }
+	    }
+	}
+}

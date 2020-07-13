@@ -1,0 +1,61 @@
+{"flight":
+	{
+	    "event": "EQSUB",
+	    "version": "3",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240fdec3",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T14:11:09.1320000",
+	        "fltHubTimeStamp": "2020-05-12T14:11:12.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "0810",
+	        "fltOrgDate": "2020-05-13",
+	        "depSta": "DFW",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "cycled": 1,
+	    "leg": {
+	        "stations": {
+	            "arr": "ONT",
+	            "dupArrStaNum": "0"
+	        },
+	        "equipment": {
+	            "assignedTail": "3PV",
+	            "assignedEquipType": "738A",
+	            "assignedNumericEquipType": "CE",
+	            "specialEquipInds": "4C",
+	            "aircraftRegistrationNbr": "N357PV",
+	            "maintTurnCode": "AC",
+	            "equipReq": "00",
+	            "sasEquipCode": "38A"
+	        },
+	        "times": {
+	            "STD": "2020-05-14T00:00:00.0000000",
+	            "STA": "2020-05-14T03:13:00.0000000",
+	            "depGMTAdjustment": "-PT5H0M",
+	            "arrGMTAdjustment": "-PT7H0M",
+	            "OGT": "PT50M"
+	        },
+	        "linkage": {
+	            "nextLegFltNum": "1472",
+	            "nextLegOrgDate": "2020-05-14",
+	            "nextLegFltDupCode": "0",
+	            "priorLegFltNum": "2738",
+	            "priorLegOrgDate": "2020-05-13",
+	            "priorLegFltDupCode": "0"
+	        },
+	        "status": {
+	            "leg": " ",
+	            "dep": "S",
+	            "arr": "S"
+	        },
+	        "type": {}
+	    },
+	    "LUSInd": "N"
+	}
+}

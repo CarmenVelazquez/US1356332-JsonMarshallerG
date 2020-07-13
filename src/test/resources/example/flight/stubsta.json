@@ -1,0 +1,68 @@
+{"flight":
+	{
+	    "event": "STUBSTA",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e31123e6718f",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-11T21:12:02.3670000",
+	        "fltHubTimeStamp": "2020-05-11T21:12:02.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "2424",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "PHL",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "LAX",
+	            "dupArrStaNum": "0",
+	            "originalSkdDep": "DFW"
+	        },
+	        "equipment": {
+	            "assignedTail": " ",
+	            "assignedEquipType": "321S",
+	            "assignedNumericEquipType": "76",
+	            "maintTurnCode": " ",
+	            "equipReq": "02",
+	            "sasEquipCode": "38A"
+	        },
+	        "times": {
+	            "STD": "2020-05-11T15:30:00.0000000",
+	            "STA": "2020-05-11T18:58:00.0000000",
+	            "LTD": "2020-05-11T15:00:00.0000000",
+	            "LTA": "2020-05-11T20:57:00.0000000",
+	            "PTA": "2020-05-11T18:53:00.0000000",
+	            "skdTaxiOut": "PT20M",
+	            "skdTaxiIn": "PT13M",
+	            "latestTaxiOut": "PT50M",
+	            "latestTaxiIn": "PT2H17M",
+	            "depGMTAdjustment": "-PT4H0M",
+	            "arrGMTAdjustment": "-PT7H0M",
+	            "OGT": "PT50M"
+	        },
+	        "linkage": {
+	            "priorLegFltNum": "0000"
+	        },
+	        "planners": {
+	            "dispDesk": "FD12",
+	            "loadPlanner": "L025"
+	        },
+	        "status": {
+	            "leg": "S",
+	            "dep": "E",
+	            "arr": "E"
+	        },
+	        "type": {
+	            "fltRelStatus": " ",
+	            "callSign": "AAL424R",
+	            "stubFltNum": "424R"
+	        }
+	    }
+	}
+}

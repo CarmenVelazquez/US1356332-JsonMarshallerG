@@ -1,0 +1,2265 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"id": "resource:Flight_Json_Schema.json#",
+	"additionalProperties": false,
+	"type": "object",
+	"title": "Flight Schema",
+	"properties": {
+		"flightEvent": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"flight": {
+					"additionalProperties": false,
+					"type": "object",
+					"properties": {
+						"event": {
+							"type": "string"
+						},
+						"version": {
+							"type": "string"
+						},
+						"trackingID": {
+							"type": "string"
+						},
+						"dataTime": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"fosTimeStamp": {
+									"type": "string"
+								},
+								"sourceTimeStamp": {
+									"type": "string"
+								},
+								"fltHubTimeStamp": {
+									"type": "string"
+								}
+							}
+						},
+						"key": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"airlineCode": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"IATA": {
+											"type": "string"
+										},
+										"ICAO": {
+											"type": "string"
+										}
+									}
+								},
+								"fltNum": {
+									"type": "string"
+								},
+								"fltOrgDate": {
+									"type": "string"
+								},
+								"depSta": {
+									"type": "string"
+								},
+								"dupDepStaNum": {
+									"type": "string"
+								}
+							}
+						},
+						"fosPartition": {
+							"type": "string",
+							"enum": [
+								"AA",
+								"MQ",
+								"NA",
+								"TE",
+								"US",
+								"XS",
+								"Y_6",
+								"Y_8"
+							]
+						},
+						"cycled": {
+							"type": "boolean"
+						},
+						"leg": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"stations": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"arr": {
+											"type": "string"
+										},
+										"dupArrStaNum": {
+											"type": "string"
+										},
+										"originalSkdDep": {
+											"type": "string"
+										},
+										"originalArr": {
+											"type": "string"
+										}
+									}
+								},
+								"costs": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"goodwill": {
+											"type": "integer"
+										},
+										"cancellation": {
+											"type": "integer"
+										},
+										"timesCancelled": {
+											"type": "integer"
+										},
+										"revenue": {
+											"type": "integer"
+										}
+									}
+								},
+								"departureArrival": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"depGate": {
+											"type": "string"
+										},
+										"depTerminal": {
+											"type": "string"
+										},
+										"depTerminalDesc": {
+											"type": "string"
+										},
+										"depParkSpace": {
+											"type": "string"
+										},
+										"depConcourse": {
+											"type": "string"
+										},
+										"arrGate": {
+											"type": "string"
+										},
+										"arrTerminal": {
+											"type": "string"
+										},
+										"arrTerminalDesc": {
+											"type": "string"
+										},
+										"arrParkSpace": {
+											"type": "string"
+										},
+										"arrConcourse": {
+											"type": "string"
+										},
+										"bagClaim": {
+											"type": "string"
+										}
+									}
+								},
+								"equipment": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"assignedTail": {
+											"type": "string"
+										},
+										"skdEquipType": {
+											"type": "string"
+										},
+										"assignedEquipType": {
+											"type": "string"
+										},
+										"skdNumericEquipType": {
+											"type": "string"
+										},
+										"assignedNumericEquipType": {
+											"type": "string"
+										},
+										"specialEquipInds": {
+											"type": "string"
+										},
+										"aircraftRegistrationNbr": {
+											"type": "string"
+										},
+										"maintTurnCode": {
+											"type": "string"
+										},
+										"equipReq": {
+											"type": "string"
+										},
+										"skdSASEquip": {
+											"type": "string"
+										},
+										"adjustedLandingCycles": {
+											"type": "integer"
+										},
+										"aircraftSELCALCode": {
+											"type": "string"
+										},
+										"totalShipTime": {
+											"type": "string"
+										},
+										"totalShipCycles": {
+											"type": "integer"
+										},
+										"wifiCapability": {
+											"type": "string"
+										},
+										"fastWifi": {
+											"type": "string"
+										},
+										"powerPorts": {
+											"type": "string"
+										},
+										"sasEquipCode": {
+											"type": "string"
+										}
+									}
+								},
+								"times": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"STD": {
+											"type": "string"
+										},
+										"STA": {
+											"type": "string"
+										},
+										"LTD": {
+											"type": "string"
+										},
+										"LTA": {
+											"type": "string"
+										},
+										"PTD": {
+											"type": "string"
+										},
+										"PTA": {
+											"type": "string"
+										},
+										"ETO": {
+											"type": "string"
+										},
+										"EON": {
+											"type": "string"
+										},
+										"skdTaxiOut": {
+											"type": "string"
+										},
+										"skdTaxiIn": {
+											"type": "string"
+										},
+										"latestTaxiOut": {
+											"type": "string"
+										},
+										"latestTaxiIn": {
+											"type": "string"
+										},
+										"actualOut": {
+											"type": "string"
+										},
+										"actualOff": {
+											"type": "string"
+										},
+										"actualOn": {
+											"type": "string"
+										},
+										"actualIn": {
+											"type": "string"
+										},
+										"depGMTAdjustment": {
+											"type": "string"
+										},
+										"arrGMTAdjustment": {
+											"type": "string"
+										},
+										"OGT": {
+											"type": "string"
+										},
+										"legDepDOM": {
+											"type": "string"
+										},
+										"legArrDOM": {
+											"type": "string"
+										},
+										"autoETDAccumMins": {
+											"type": "string"
+										},
+										"flightPlanCalcTm": {
+											"type": "string"
+										},
+										"flightPlanOut": {
+											"type": "string"
+										},
+										"flightPlanOff": {
+											"type": "string"
+										},
+										"flightPlanOn": {
+											"type": "string"
+										},
+										"flightPlanIn": {
+											"type": "string"
+										},
+										"doorOpen": {
+											"type": "string"
+										},
+										"acarsin": {
+											"type": "string"
+										},
+										"paxDepOffSet": {
+											"type": "string"
+										},
+										"paxArrOffSet": {
+											"type": "string"
+										},
+										"skdBoardingStart": {
+											"type": "string"
+										},
+										"latestBoardStart": {
+											"type": "string"
+										},
+										"doorCloseTm": {
+											"type": "string"
+										}
+									}
+								},
+								"linkage": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"secondDownlineSta": {
+											"type": "string"
+										},
+										"thirdDownlineSta": {
+											"type": "string"
+										},
+										"nextLegFltNum": {
+											"type": "string"
+										},
+										"nextLegOrgDate": {
+											"type": "string"
+										},
+										"nextLegFltDupCode": {
+											"type": "string"
+										},
+										"priorLegFltNum": {
+											"type": "string"
+										},
+										"priorLegOrgDate": {
+											"type": "string"
+										},
+										"priorLegFltDupCode": {
+											"type": "string"
+										}
+									}
+								},
+								"paxCounts": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"planned": {
+											"type": "integer"
+										},
+										"thru": {
+											"type": "integer"
+										},
+										"downline": {
+											"type": "integer"
+										}
+									}
+								},
+								"planners": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"dispDesk": {
+											"type": "string"
+										},
+										"dispPhone": {
+											"type": "string"
+										},
+										"dispName": {
+											"type": "string"
+										},
+										"loadPlanner": {
+											"type": "string"
+										},
+										"loadPlannerPhone": {
+											"type": "string"
+										},
+										"loadPlannerName": {
+											"type": "string"
+										}
+									}
+								},
+								"enroute": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"choReceived": {
+											"type": "boolean",
+											"required": true
+										},
+										"eacEfcLast": {
+											"type": "boolean",
+											"required": true
+										},
+										"eacReportType": {
+											"type": "boolean"
+										},
+										"eacEfcTime": {
+											"type": "string"
+										}
+									}
+								},
+								"fuel": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"planDep": {
+											"type": "integer"
+										},
+										"actualDep": {
+											"type": "integer"
+										},
+										"planOff": {
+											"type": "integer"
+										},
+										"actualOff": {
+											"type": "integer"
+										},
+										"planOn": {
+											"type": "integer"
+										},
+										"actualOn": {
+											"type": "integer"
+										},
+										"planArr": {
+											"type": "integer"
+										},
+										"actualArr": {
+											"type": "integer"
+										},
+										"weightUnit": {
+											"type": "string"
+										}
+									}
+								},
+								"status": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"leg": {
+											"type": "string"
+										},
+										"dep": {
+											"type": "string"
+										},
+										"arr": {
+											"type": "string"
+										},
+										"fitForDuty": {
+											"type": "string"
+										},
+										"paxStatus": {
+											"type": "string"
+										},
+										"picrecdFP": {
+											"type": "string"
+										}
+									}
+								},
+								"performance": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"tpsEquipCode": {
+											"type": "string"
+										},
+										"primaryRunway": {
+											"type": "string"
+										},
+										"primaryFlap": {
+											"type": "string"
+										},
+										"headWind": {
+											"type": "string"
+										},
+										"temperature": {
+											"type": "string"
+										},
+										"qnhPressure": {
+											"type": "string"
+										},
+										"thrustRating": {
+											"type": "string"
+										},
+										"antiIce": {
+											"type": "boolean"
+										},
+										"wtRestricted": {
+											"type": "boolean"
+										}
+									}
+								},
+								"payloadAndWeights": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"payload": {
+											"type": "integer"
+										},
+										"loadStatus": {
+											"type": "string"
+										},
+										"dryOperatingWeight": {
+											"type": "integer"
+										},
+										"zeroFuelWeight": {
+											"type": "integer"
+										},
+										"maximumZFW": {
+											"type": "integer"
+										},
+										"maxTakeoffWeight": {
+											"type": "integer"
+										},
+										"maxLandingWeight": {
+											"type": "integer"
+										},
+										"maxWeights": {
+											"additionalProperties": false,
+											"type": "object",
+											"properties": {
+												"mtowWeightAndMldgWeight": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										},
+										"maxRampWeight": {
+											"type": "integer"
+										},
+										"mtowsuffix": {
+											"type": "string"
+										},
+										"mldwsuffix": {
+											"type": "string"
+										}
+									}
+								},
+								"type": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"deiceInd": {
+											"type": "string"
+										},
+										"captQuals": {
+											"type": "string"
+										},
+										"fltRelStatus": {
+											"type": "string"
+										},
+										"callSign": {
+											"type": "string"
+										},
+										"mealCode": {
+											"type": "string"
+										},
+										"stubFltNum": {
+											"type": "string"
+										},
+										"intOrDom": {
+											"type": "string"
+										},
+										"kickOffFlt": {
+											"type": "string"
+										},
+										"antiIceInd": {
+											"type": "string"
+										},
+										"dblProvision": {
+											"type": "string"
+										},
+										"EWDirectionInd": {
+											"type": "string"
+										},
+										"EROWneeded": {
+											"type": "string"
+										},
+										"EROWcomplete": {
+											"type": "string"
+										}
+									}
+								},
+								"flightPlanStatus": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"flightPlanReleaseCount": {
+											"type": "string"
+										},
+										"flightPlanRevisionNbr": {
+											"type": "string"
+										}
+									}
+								},
+								"reason": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"code": {
+											"type": "string"
+										},
+										"information": {
+											"type": "string"
+										},
+										"maintIssue": {
+											"type": "string"
+										}
+									}
+								},
+								"codeShareInfo": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"marketCode": {
+											"type": "string"
+										},
+										"operatedBy": {
+											"additionalProperties": false,
+											"type": "object",
+											"properties": {
+												"IATA": {
+													"type": "string"
+												},
+												"flightNbr": {
+													"type": "string"
+												},
+												"airlineName": {
+													"type": "string"
+												}
+											}
+										},
+										"partnerFlight": {
+											"type": "array",
+											"items": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"IATA": {
+														"type": "string"
+													},
+													"flightNbr": {
+														"type": "string"
+													},
+													"airlineName": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								},
+								"flifo": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"info": {
+											"type": "array",
+											"items": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"ID": {
+														"type": "string"
+													},
+													"description": {
+														"type": "string"
+													}
+												}
+											}
+										},
+										"flifocode": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"bondedFuelStatus": {
+							"type": "boolean"
+						},
+						"alternates": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"TOA": {
+									"type": "string"
+								},
+								"dest1": {
+									"type": "string"
+								},
+								"dest2": {
+									"type": "string"
+								},
+								"ERA": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"sta": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						},
+						"crewData": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"crewChanges": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"operatingPilot": {
+											"type": "boolean",
+											"required": true
+										},
+										"deadheadPilot": {
+											"type": "boolean",
+											"required": true
+										},
+										"operatingFA": {
+											"type": "boolean",
+											"required": true
+										},
+										"deadheadFA": {
+											"type": "boolean",
+											"required": true
+										}
+									}
+								},
+								"landingQuals": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"highestQual": {
+											"type": "string"
+										},
+										"CAT1": {
+											"type": "string"
+										},
+										"CAT2": {
+											"type": "string"
+										},
+										"CAT3": {
+											"type": "string"
+										},
+										"restricted": {
+											"type": "boolean",
+											"required": true
+										}
+									}
+								},
+								"crewmember": {
+									"$ref": "#/definitions/crewmember"
+								}
+							}
+						},
+						"crewmember": {
+							"$ref": "#/definitions/crewmember"
+						},
+						"delayCodes": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"local": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"order": {
+												"type": "integer"
+											},
+											"code": {
+												"type": "string"
+											},
+											"time": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"thru": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"order": {
+												"type": "integer"
+											},
+											"code": {
+												"type": "string"
+											},
+											"time": {
+												"type": "string"
+											},
+											"resFlt": {
+												"type": "string"
+											},
+											"resSta": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"acars": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"order": {
+												"type": "integer"
+											},
+											"thruCode": {
+												"type": "string"
+											},
+											"thruTime": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"mosaicDEP": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"seqNbr": {
+												"type": "integer"
+											},
+											"code": {
+												"type": "string"
+											},
+											"time": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"mosaicENR": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"seqNbr": {
+												"type": "integer"
+											},
+											"code": {
+												"type": "string"
+											},
+											"time": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						},
+						"connection": {
+							"type": "array",
+							"items": {
+								"additionalProperties": false,
+								"type": "object",
+								"properties": {
+									"flightConnection": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"fltNum": {
+												"type": "string"
+											},
+											"fltOrgDate": {
+												"type": "string"
+											},
+											"upOrDownlineSta": {
+												"type": "string"
+											},
+											"dupStaCode": {
+												"type": "string"
+											},
+											"connectingPaxCount": {
+												"type": "integer"
+											},
+											"downlineEquipCode": {
+												"type": "string"
+											},
+											"downlineDepTime": {
+												"type": "string"
+											}
+										}
+									},
+									"crewPaxBothInd": {
+										"type": "string"
+									},
+									"prevNextInd": {
+										"type": "string"
+									},
+									"crew": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"crewConnectionQualifiers": {
+												"type": "string"
+											},
+											"cockpitPositions": {
+												"type": "string"
+											},
+											"faPositions": {
+												"type": "string"
+											},
+											"operatingCrewForOtherLeg": {
+												"type": "string"
+											},
+											"cockpitCrewCount": {
+												"type": "integer"
+											},
+											"faCrewCount": {
+												"type": "integer"
+											},
+											"dhCockpitCrewCount": {
+												"type": "integer"
+											},
+											"dhfaCrewCount": {
+												"type": "integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						"loadPlanWeights": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"compartmentsCount": {
+									"type": "integer"
+								},
+								"cargoFinalInd": {
+									"type": "string"
+								},
+								"thruCargoUpdateInd": {
+									"type": "string"
+								},
+								"stop92MinPaxUpdateInd": {
+									"type": "string"
+								},
+								"version": {
+									"type": "integer"
+								},
+								"unused": {
+									"type": "string"
+								},
+								"compartment": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"compartmentId": {
+												"type": "string"
+											},
+											"local": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"bagCount": {
+														"type": "integer"
+													},
+													"frtWeight": {
+														"type": "integer"
+													},
+													"bagWeight": {
+														"type": "integer"
+													},
+													"containerWeight": {
+														"type": "integer"
+													},
+													"mailWeight": {
+														"type": "integer"
+													},
+													"otherWeight": {
+														"type": "integer"
+													}
+												}
+											},
+											"thru": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"bagCount": {
+														"type": "integer"
+													},
+													"frtWeight": {
+														"type": "integer"
+													},
+													"bagWeight": {
+														"type": "integer"
+													},
+													"containerWeight": {
+														"type": "integer"
+													},
+													"mailWeight": {
+														"type": "integer"
+													},
+													"otherWeight": {
+														"type": "integer"
+													}
+												}
+											}
+										}
+									}
+								},
+								"wbdsind": {
+									"type": "string"
+								},
+								"wbwlind": {
+									"type": "string"
+								}
+							}
+						},
+						"loadPlanPaxCounts": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"thruPaxUpdateInd": {
+									"type": "string"
+								},
+								"counts": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"paxDataItems": {
+											"type": "string"
+										},
+										"cockpitCrew": {
+											"type": "integer"
+										},
+										"TSOB": {
+											"type": "integer"
+										},
+										"localJumpSeat": {
+											"type": "integer"
+										},
+										"thruJumpSeat": {
+											"type": "integer"
+										},
+										"facrew": {
+											"type": "integer"
+										}
+									}
+								},
+								"unused": {
+									"type": "string"
+								},
+								"pax": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"clazz": {
+												"type": "string"
+											},
+											"local": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"paxCount": {
+														"type": "integer"
+													},
+													"childCount": {
+														"type": "integer"
+													},
+													"infantCount": {
+														"type": "integer"
+													},
+													"excessWeight": {
+														"type": "integer"
+													},
+													"ttlPsgrWgt": {
+														"type": "integer"
+													}
+												}
+											},
+											"thru": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"paxCount": {
+														"type": "integer"
+													},
+													"childCount": {
+														"type": "integer"
+													},
+													"infantCount": {
+														"type": "integer"
+													},
+													"excessWeight": {
+														"type": "integer"
+													},
+													"ttlPsgrWgt": {
+														"type": "integer"
+													}
+												}
+											}
+										}
+									}
+								},
+								"xRider": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"localF": {
+											"type": "integer"
+										},
+										"thruF": {
+											"type": "integer"
+										},
+										"localY": {
+											"type": "integer"
+										},
+										"thruY": {
+											"type": "integer"
+										}
+									}
+								}
+							}
+						},
+						"cabinCapacity": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"F": {
+									"type": "integer"
+								},
+								"Y": {
+									"type": "integer"
+								},
+								"C": {
+									"type": "integer"
+								},
+								"P": {
+									"type": "integer"
+								},
+								"unused": {
+									"type": "string"
+								}
+							}
+						},
+						"fuelSlip": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"fuelDensity": {
+									"type": "string"
+								},
+								"bondedFuelStatus": {
+									"type": "boolean",
+									"required": true
+								},
+								"allowedTankFuelDiff": {
+									"type": "integer"
+								},
+								"totalPlanFuel": {
+									"type": "integer"
+								},
+								"distribution": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"tankFuel": {
+											"type": "array",
+											"items": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"value": {
+														"type": "integer"
+													},
+													"tankID": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								},
+								"remarkText": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"firstFuelerRmk": {
+											"type": "string"
+										},
+										"secondFuelerRmk": {
+											"type": "string"
+										},
+										"melCdlRemark": {
+											"type": "string"
+										},
+										"fuelSlipText": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"route": {
+							"type": "array",
+							"items": {
+								"additionalProperties": false,
+								"type": "object",
+								"properties": {
+									"num": {
+										"type": "string"
+									},
+									"letter": {
+										"type": "string"
+									},
+									"attributes": {
+										"$ref": "#/definitions/routeAttributes"
+									},
+									"segments": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"segmentCount": {
+												"type": "integer"
+											},
+											"segment": {
+												"type": "array",
+												"items": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"order": {
+															"type": "integer"
+														},
+														"endPoint": {
+															"type": "string"
+														},
+														"endPointICAO": {
+															"type": "string"
+														},
+														"coordinates": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"latitude": {
+																	"$ref": "#/definitions/latitudeOrLongitude"
+																},
+																"longitude": {
+																	"$ref": "#/definitions/latitudeOrLongitude"
+																}
+															}
+														},
+														"endPointOrdinal": {
+															"type": "integer"
+														},
+														"rptdAlt": {
+															"type": "integer"
+														},
+														"rptdTime": {
+															"type": "string"
+														},
+														"rptdFuel": {
+															"type": "integer"
+														},
+														"distance": {
+															"type": "integer"
+														},
+														"useInds": {
+															"type": "string"
+														},
+														"segmentIndicators": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"VOR": {
+																	"type": "boolean"
+																},
+																"altChangePermitted": {
+																	"type": "boolean"
+																},
+																"firBoundary": {
+																	"type": "boolean"
+																},
+																"speedAltitudeChange": {
+																	"type": "boolean"
+																},
+																"gateway": {
+																	"type": "boolean"
+																},
+																"fltPlanOutputPoint": {
+																	"type": "boolean"
+																},
+																"decSoutputPoint": {
+																	"type": "boolean"
+																},
+																"reclearPoint": {
+																	"type": "boolean"
+																},
+																"overwaterGateway": {
+																	"type": "boolean"
+																},
+																"etPoverwaterPoint": {
+																	"type": "boolean"
+																},
+																"endpointRestrictedAirway": {
+																	"type": "boolean"
+																},
+																"blockedPoint": {
+																	"type": "boolean"
+																},
+																"endpointWithAltRestriction": {
+																	"type": "boolean"
+																}
+															}
+														},
+														"altitude": {
+															"type": "integer"
+														},
+														"time": {
+															"type": "string"
+														},
+														"fuel": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									},
+									"ATCText": {
+										"$ref": "#/definitions/ATCText"
+									},
+									"remarks": {
+										"$ref": "#/definitions/remarks"
+									}
+								}
+							}
+						},
+						"planRoute": {
+							"type": "array",
+							"items": {
+								"additionalProperties": false,
+								"type": "object",
+								"properties": {
+									"num": {
+										"type": "string"
+									},
+									"letter": {
+										"type": "string"
+									},
+									"attributes": {
+										"$ref": "#/definitions/planRouteAttributes"
+									},
+									"segs": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"segCount": {
+												"type": "integer"
+											},
+											"seg": {
+												"type": "array",
+												"items": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"order": {
+															"type": "integer"
+														},
+														"point": {
+															"type": "string"
+														},
+														"ptICAO": {
+															"type": "string"
+														},
+														"coord": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"lat": {
+																	"type": "string",
+																	"required": true
+																},
+																"lon": {
+																	"type": "string",
+																	"required": true
+																}
+															}
+														},
+														"ptOrdnl": {
+															"type": "integer"
+														},
+														"rptdAlt": {
+															"type": "integer"
+														},
+														"rptdTime": {
+															"type": "string"
+														},
+														"rptdFuel": {
+															"type": "integer"
+														},
+														"dist": {
+															"type": "integer"
+														},
+														"useInds": {
+															"type": "string"
+														},
+														"segInd": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"VOR": {
+																	"type": "boolean"
+																},
+																"altChgOk": {
+																	"type": "boolean"
+																},
+																"FIR": {
+																	"type": "boolean"
+																},
+																"spdAltChgOk": {
+																	"type": "boolean"
+																},
+																"gate": {
+																	"type": "boolean"
+																},
+																"fltPlnPt": {
+																	"type": "boolean"
+																},
+																"decsPt": {
+																	"type": "boolean"
+																},
+																"reclear": {
+																	"type": "boolean"
+																},
+																"owGate": {
+																	"type": "boolean"
+																},
+																"etPt": {
+																	"type": "boolean"
+																},
+																"endRestrAwy": {
+																	"type": "boolean"
+																},
+																"blocked": {
+																	"type": "boolean"
+																},
+																"ptAltRestr": {
+																	"type": "boolean"
+																}
+															}
+														},
+														"alt": {
+															"type": "integer"
+														},
+														"time": {
+															"type": "string"
+														},
+														"fuel": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									},
+									"ATCText": {
+										"$ref": "#/definitions/ATCText"
+									},
+									"remarks": {
+										"$ref": "#/definitions/remarks"
+									}
+								}
+							}
+						},
+						"fltPlanSignature": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"source": {
+									"type": "string"
+								},
+								"updatingEid": {
+									"type": "string"
+								},
+								"piceid": {
+									"type": "string"
+								}
+							}
+						},
+						"trackInformation": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"sourceFacility": {
+									"type": "string"
+								},
+								"computerID": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"facilityIdentifier": {
+											"type": "string"
+										},
+										"computerSystemId": {
+											"type": "string",
+											"enum": [
+												"TFMS",
+												"HCS",
+												"CTAS",
+												"ETMS",
+												"ERAM",
+												"ODAPS",
+												"OTHER"
+											]
+										},
+										"idNumber": {
+											"type": "string"
+										}
+									}
+								},
+								"sourceTimeStamp": {
+									"type": "string"
+								},
+								"latitude": {
+									"type": "number"
+								},
+								"longitude": {
+									"type": "number"
+								},
+								"reportedAltitude": {
+									"additionalProperties": false,
+									"type": "object",
+									"properties": {
+										"requestedAltitude": {
+											"additionalProperties": false,
+											"type": "object",
+											"properties": {
+												"simpleAltitude": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"value": {
+															"type": "string"
+														},
+														"above": {
+															"type": "boolean"
+														}
+													}
+												},
+												"blockedAltitude": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"min": {
+															"type": "string"
+														},
+														"max": {
+															"type": "string"
+														}
+													}
+												},
+												"visualFlightRules": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"altitude": {
+															"type": "string"
+														},
+														"vfrOnTop": {
+															"type": "boolean"
+														}
+													}
+												}
+											}
+										},
+										"assignedAltitude": {
+											"additionalProperties": false,
+											"type": "object",
+											"properties": {
+												"simpleAltitude": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"value": {
+															"type": "string"
+														},
+														"above": {
+															"type": "boolean"
+														}
+													}
+												},
+												"blockedAltitude": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"min": {
+															"type": "string"
+														},
+														"max": {
+															"type": "string"
+														}
+													}
+												},
+												"visualFlightRules": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"altitude": {
+															"type": "string"
+														},
+														"vfrOnTop": {
+															"type": "boolean"
+														}
+													}
+												},
+												"altitudeFixAltitude": {
+													"additionalProperties": false,
+													"type": "object",
+													"properties": {
+														"latLong": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"latitude": {
+																	"additionalProperties": false,
+																	"type": "object",
+																	"properties": {
+																		"latitudeDMS": {
+																			"additionalProperties": false,
+																			"type": "object",
+																			"properties": {
+																				"degrees": {
+																					"type": "integer"
+																				},
+																				"minutes": {
+																					"type": "integer"
+																				},
+																				"seconds": {
+																					"type": "integer"
+																				},
+																				"direction": {
+																					"$ref": "#/definitions/latitudeDirectionType"
+																				}
+																			}
+																		},
+																		"latitudeDecimal": {
+																			"type": "number"
+																		},
+																		"latitudeRadians": {
+																			"type": "number"
+																		}
+																	}
+																},
+																"longitude": {
+																	"additionalProperties": false,
+																	"type": "object",
+																	"properties": {
+																		"longitudeDMS": {
+																			"additionalProperties": false,
+																			"type": "object",
+																			"properties": {
+																				"degrees": {
+																					"type": "integer"
+																				},
+																				"minutes": {
+																					"type": "integer"
+																				},
+																				"seconds": {
+																					"type": "integer"
+																				},
+																				"direction": {
+																					"$ref": "#/definitions/longitudeDirectionType"
+																				}
+																			}
+																		},
+																		"longitudeDecimal": {
+																			"type": "number"
+																		},
+																		"longitudeRadians": {
+																			"type": "number"
+																		}
+																	}
+																}
+															}
+														},
+														"namedFix": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"value": {
+																	"type": "string"
+																}
+															}
+														},
+														"fixRadialDistance": {
+															"additionalProperties": false,
+															"type": "object",
+															"properties": {
+																"value": {
+																	"type": "string"
+																},
+																"radial": {
+																	"type": "integer"
+																},
+																"distance": {
+																	"type": "integer"
+																}
+															}
+														},
+														"preFixAltitude": {
+															"type": "string"
+														},
+														"postFixAltitude": {
+															"type": "string"
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"speed": {
+									"type": "integer"
+								}
+							}
+						},
+						"miscData": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"item": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"value": {
+												"type": "string"
+											},
+											"code": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						},
+						"cargoItems": {
+							"additionalProperties": false,
+							"type": "object",
+							"properties": {
+								"cargoItem": {
+									"type": "array",
+									"items": {
+										"additionalProperties": false,
+										"type": "object",
+										"properties": {
+											"lineNumber": {
+												"type": "integer"
+											},
+											"unitID": {
+												"type": "string"
+											},
+											"commodity": {
+												"additionalProperties": false,
+												"type": "object",
+												"properties": {
+													"value": {
+														"type": "string"
+													},
+													"bagType": {
+														"type": "string"
+													},
+													"bagCount": {
+														"type": "integer"
+													}
+												}
+											},
+											"actualWeight": {
+												"type": "integer"
+											},
+											"offPointDestination": {
+												"type": "string"
+											},
+											"finalDestination": {
+												"type": "string"
+											},
+											"refusalCode": {
+												"type": "string"
+											},
+											"remarks": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						},
+						"source": {
+							"type": "string"
+						},
+						"LUSInd": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"latitudeOrLongitude": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"hemisphere": {
+					"type": "string"
+				},
+				"degrees": {
+					"type": "string"
+				},
+				"minutes": {
+					"type": "string"
+				}
+			}
+		},
+		"ATCText": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"length": {
+					"type": "integer"
+				},
+				"text": {
+					"type": "string"
+				}
+			}
+		},
+		"remarks": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"length": {
+					"type": "integer"
+				},
+				"text": {
+					"type": "string"
+				}
+			}
+		},
+		"routeAttributes": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"priority": {
+					"type": "integer"
+				},
+				"selectedInd": {
+					"type": "boolean"
+				},
+				"length": {
+					"type": "integer"
+				},
+				"windDistance": {
+					"type": "integer"
+				},
+				"indBits1": {
+					"type": "string"
+				},
+				"indBits2": {
+					"type": "string"
+				},
+				"indBits3": {
+					"type": "string"
+				},
+				"routeIndicators": {
+					"additionalProperties": false,
+					"type": "object",
+					"properties": {
+						"hiLowRte": {
+							"type": "boolean"
+						},
+						"lowLevelRte": {
+							"type": "boolean"
+						},
+						"faaPrefRte": {
+							"type": "boolean"
+						},
+						"reclearRte": {
+							"type": "string"
+						},
+						"nationalRteProgram": {
+							"type": "boolean"
+						},
+						"internationalRte": {
+							"type": "boolean"
+						},
+						"fuelFerry": {
+							"type": "boolean"
+						},
+						"supplementalRte": {
+							"type": "boolean"
+						},
+						"shortSegRte": {
+							"type": "boolean"
+						},
+						"codedDepartureRte": {
+							"type": "boolean"
+						},
+						"overWaterAircraftRequired": {
+							"type": "boolean"
+						},
+						"highAltitudeRte": {
+							"type": "boolean"
+						},
+						"omegaAircraftRequired": {
+							"type": "boolean"
+						},
+						"pointToPoint": {
+							"type": "boolean"
+						},
+						"restrictSuper80": {
+							"type": "boolean"
+						},
+						"fmcTextAvailable": {
+							"type": "boolean"
+						},
+						"eraTextAvailable": {
+							"type": "boolean"
+						},
+						"possibleATCTextError": {
+							"type": "boolean"
+						},
+						"playbookRte": {
+							"type": "boolean"
+						}
+					}
+				},
+				"routeInput": {
+					"type": "boolean"
+				}
+			}
+		},
+		"planRouteAttributes": {
+			"additionalProperties": false,
+			"type": "object",
+			"properties": {
+				"priority": {
+					"type": "integer"
+				},
+				"selectedInd": {
+					"type": "boolean"
+				},
+				"distance": {
+					"type": "integer"
+				},
+				"windDist": {
+					"type": "integer"
+				},
+				"indBits1": {
+					"type": "string"
+				},
+				"indBits2": {
+					"type": "string"
+				},
+				"indBits3": {
+					"type": "string"
+				},
+				"routeInd": {
+					"additionalProperties": false,
+					"type": "object",
+					"properties": {
+						"hiLvl": {
+							"type": "boolean"
+						},
+						"loLvl": {
+							"type": "boolean"
+						},
+						"faaPref": {
+							"type": "boolean"
+						},
+						"reclear": {
+							"type": "string"
+						},
+						"NRP": {
+							"type": "boolean"
+						},
+						"international": {
+							"type": "boolean"
+						},
+						"fuelFerry": {
+							"type": "boolean"
+						},
+						"supplemental": {
+							"type": "boolean"
+						},
+						"shortSeg": {
+							"type": "boolean"
+						},
+						"CDR": {
+							"type": "boolean"
+						},
+						"owAcftRqd": {
+							"type": "boolean"
+						},
+						"HAR": {
+							"type": "boolean"
+						},
+						"omegaAcftRqd": {
+							"type": "boolean"
+						},
+						"pToP": {
+							"type": "boolean"
+						},
+						"noS80": {
+							"type": "boolean"
+						},
+						"fmcTxtAvail": {
+							"type": "boolean"
+						},
+						"eraTxtAvail": {
+							"type": "boolean"
+						},
+						"posblATCTxtErr": {
+							"type": "boolean"
+						},
+						"playbook": {
+							"type": "boolean"
+						}
+					}
+				},
+				"routeInput": {
+					"type": "boolean"
+				}
+			}
+		},
+		"latitudeDirectionType": {
+			"type": "string",
+			"enum": [
+				"NORTH",
+				"SOUTH"
+			]
+		},
+		"longitudeDirectionType": {
+			"type": "string",
+			"enum": [
+				"EAST",
+				"WEST"
+			]
+		},
+		"crewmember": {
+			"type": "array",
+			"items": {
+				"additionalProperties": false,
+				"type": "object",
+				"properties": {
+					"fltPosition": {
+						"type": "string"
+					},
+					"cockpitInd": {
+						"type": "boolean"
+					},
+					"deadhead": {
+						"type": "boolean"
+					},
+					"operatingOrDHInd": {
+						"type": "string"
+					},
+					"empNum": {
+						"type": "string"
+					},
+					"crewBase": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string"
+					},
+					"midInitial": {
+						"type": "string"
+					},
+					"nickName": {
+						"type": "string"
+					},
+					"hiMin": {
+						"type": "boolean"
+					},
+					"polarQualified": {
+						"type": "boolean"
+					},
+					"divisionQuals": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"division": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"sequence": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"intOrDomSeq": {
+								"type": "string"
+							},
+							"seqPosition": {
+								"type": "string"
+							},
+							"seqNum": {
+								"type": "integer"
+							},
+							"seqOriginDate": {
+								"type": "string"
+							},
+							"dutyPeriodStartDate": {
+								"type": "string"
+							},
+							"dutyPeriodStartTime": {
+								"type": "string"
+							},
+							"dutyCode": {
+								"type": "string"
+							},
+							"dutyLimitTime": {
+								"type": "string"
+							},
+							"seqDPInds": {
+								"type": "string"
+							}
+						}
+					},
+					"prevFlt": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"fltNum": {
+								"type": "string"
+							},
+							"fltDepDate": {
+								"type": "string"
+							},
+							"fltDepSta": {
+								"type": "string"
+							},
+							"fltDupCode": {
+								"type": "string"
+							},
+							"fltInds": {
+								"type": "string"
+							},
+							"fltEquipCode": {
+								"type": "string"
+							},
+							"fltDepTime": {
+								"type": "string"
+							}
+						}
+					},
+					"nextFlt": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"fltNum": {
+								"type": "string"
+							},
+							"fltDepDate": {
+								"type": "string"
+							},
+							"fltDepSta": {
+								"type": "string"
+							},
+							"fltDupCode": {
+								"type": "string"
+							},
+							"fltInds": {
+								"type": "string"
+							},
+							"fltEquipCode": {
+								"type": "string"
+							},
+							"fltDepTime": {
+								"type": "string"
+							}
+						}
+					},
+					"times": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"actualProj": {
+								"type": "string"
+							},
+							"GTD": {
+								"type": "string"
+							},
+							"payProj": {
+								"type": "string"
+							},
+							"skdProj": {
+								"type": "string"
+							}
+						}
+					},
+					"type": {
+						"additionalProperties": false,
+						"type": "object",
+						"properties": {
+							"catCode": {
+								"type": "string"
+							},
+							"mbrresInds": {
+								"type": "string"
+							}
+						}
+					},
+					"fitForDuty": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

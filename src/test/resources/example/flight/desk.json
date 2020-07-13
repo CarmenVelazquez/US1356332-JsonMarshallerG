@@ -1,0 +1,39 @@
+{"flight":
+	{
+	    "event": "DESK",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311241114af",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T14:38:09.0150000",
+	        "fltHubTimeStamp": "2020-05-12T14:38:14.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "2927",
+	        "fltOrgDate": "2020-05-13",
+	        "depSta": "AUS",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "cycled": 1,
+	    "leg": {
+	        "stations": {
+	            "arr": "CLT",
+	            "dupArrStaNum": "0"
+	        },
+	        "times": {
+	            "STD": "2020-05-13T20:38:00.0000000",
+	            "STA": "2020-05-13T23:25:00.0000000",
+	            "depGMTAdjustment": "-PT5H0M",
+	            "arrGMTAdjustment": "-PT4H0M"
+	        },
+	        "planners": {
+	            "dispDesk": "FD18",
+	            "dispPhone": "7118"
+	        }
+	    }
+	}
+}

@@ -1,0 +1,532 @@
+{"flight":
+	{
+	    "version": "2",
+	    "fosPartition": "AA",
+	    "connection": [
+	        {
+	            "flightConnection": {
+	                "fltNum": "5045",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PHL",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "P"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1800",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "BWI",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "B",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "0457",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MIA",
+	                "connectingPaxCount": "14"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2692",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MSP",
+	                "connectingPaxCount": "4"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1664",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PHL",
+	                "connectingPaxCount": "4"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "0583",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "ORD",
+	                "connectingPaxCount": "4"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2869",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PHX",
+	                "connectingPaxCount": "3"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2194",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "FLL",
+	                "connectingPaxCount": "3"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1905",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "ALB",
+	                "connectingPaxCount": "3"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1267",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PBI",
+	                "connectingPaxCount": "3"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5351",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "DAB",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5259",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "CVG",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2044",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "LAX",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "4488",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "CMH",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1962",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PIT",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1937",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "BOS",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1829",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "SYR",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1441",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "CLE",
+	                "connectingPaxCount": "2"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2441",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "SAT",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5192",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "CID",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5028",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "BHM",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5159",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "DAY",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "4896",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MDT",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5371",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "CAK",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2060",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "BNA",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "0864",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "TPA",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "4443",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "OMA",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5580",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "GNV",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "4421",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MCI",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2419",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "DEN",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5222",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "OKC",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "2602",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "DFW",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1071",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "STL",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5667",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MHT",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5686",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "LIT",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5284",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "TLH",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5696",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "VPS",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "5294",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "PNS",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        },
+	        {
+	            "flightConnection": {
+	                "fltNum": "1943",
+	                "dupStaCode": "0",
+	                "fltOrgDate": "2020-05-18",
+	                "upOrDownlineSta": "MSY",
+	                "connectingPaxCount": "1"
+	            },
+	            "crewPaxBothInd": "P",
+	            "prevNextInd": "N"
+	        }
+	    ],
+	    "event": "PSGRLOAD",
+	    "loadPlanPaxCounts": {
+	        "status": "2",
+	        "counts": {
+	            "paxDataItems": "4",
+	            "thruJumpSeat": "0",
+	            "localJumpSeat": "0"
+	        },
+	        "pax": [
+	            {
+	                "local": {
+	                    "ttlPsgrWgt": "1520",
+	                    "childCount": "0",
+	                    "excessWeight": "0",
+	                    "paxCount": "8"
+	                },
+	                "clazz": "F"
+	            },
+	            {
+	                "local": {
+	                    "ttlPsgrWgt": "0",
+	                    "childCount": "0",
+	                    "excessWeight": "0",
+	                    "paxCount": "0"
+	                },
+	                "clazz": "C"
+	            },
+	            {
+	                "local": {
+	                    "ttlPsgrWgt": "0",
+	                    "childCount": "0",
+	                    "excessWeight": "0",
+	                    "paxCount": "0"
+	                },
+	                "clazz": "W"
+	            },
+	            {
+	                "local": {
+	                    "ttlPsgrWgt": "14527",
+	                    "childCount": "1",
+	                    "excessWeight": "0",
+	                    "paxCount": "77"
+	                },
+	                "clazz": "Y"
+	            }
+	        ],
+	        "thruPaxUpdateInd": "N",
+	        "xRider": {
+	            "localF": "0",
+	            "thruY": "0",
+	            "localY": "0",
+	            "thruF": "0"
+	        }
+	    },
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-18T21:51:15.7550000",
+	        "fltHubTimeStamp": "2020-05-18T21:51:16.0000000"
+	    },
+	    "trackingID": "414d512046484d5150433120202020205eb4ca9b2235bcd5",
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "dupDepStaNum": "0",
+	        "fltNum": "0508",
+	        "fltOrgDate": "2020-05-18",
+	        "depSta": "RDU"
+	    },
+	    "leg": {
+	        "status": {
+	            "arr": "S",
+	            "dep": "S",
+	            "leg": ""
+	        },
+	        "stations": {
+	            "arr": "CLT",
+	            "dupArrStaNum": "0"
+	        },
+	        "paxCounts": {
+	            "thru": "0",
+	            "downline": "76",
+	            "planned": "88"
+	        },
+	        "times": {
+	            "STA": "2020-05-18T23:25:00.0000000",
+	            "STD": "2020-05-18T22:12:00.0000000",
+	            "arrGMTAdjustment": "-PT4H0M",
+	            "depGMTAdjustment": "-PT4H0M"
+	        },
+	        "payloadAndWeights": {
+	            "loadStatus": "R",
+	            "payload": "17200"
+	        }
+	    }
+	}
+}

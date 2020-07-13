@@ -1,0 +1,84 @@
+{"flight":
+	{
+	    "event": "CONTINUATION",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240ea19d",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T13:48:41.0400000",
+	        "fltHubTimeStamp": "2020-05-12T13:48:42.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "9230",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "JFK",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "LHR",
+	            "dupArrStaNum": "0"
+	        },
+	        "equipment": {
+	            "assignedTail": " ",
+	            "skdEquipType": "7879",
+	            "assignedEquipType": "7879",
+	            "skdNumericEquipType": "96",
+	            "assignedNumericEquipType": "96",
+	            "maintTurnCode": " ",
+	            "equipReq": "00",
+	            "sasEquipCode": "789"
+	        },
+	        "times": {
+	            "STD": "2020-05-12T02:00:00.0000000",
+	            "STA": "2020-05-12T09:14:00.0000000",
+	            "LTD": "2020-05-12T02:00:00.0000000",
+	            "LTA": "2020-05-12T09:14:00.0000000",
+	            "skdTaxiOut": "PT0M",
+	            "skdTaxiIn": "PT0M",
+	            "depGMTAdjustment": "-PT4H0M",
+	            "arrGMTAdjustment": "PT1H0M",
+	            "OGT": "PT1H5M",
+	            "legDepDOM": "2020-05-11",
+	            "legArrDOM": "2020-05-12"
+	        },
+	        "linkage": {
+	            "nextLegFltNum": "0000",
+	            "priorLegFltNum": "9230",
+	            "priorLegOrgDate": "2020-05-11",
+	            "priorLegFltDupCode": "0"
+	        },
+	        "paxCounts": {
+	            "planned": 0,
+	            "thru": 0,
+	            "downline": 0
+	        },
+	        "planners": {
+	            "dispDesk": "FD58"
+	        },
+	        "status": {
+	            "leg": "C",
+	            "dep": "E",
+	            "arr": "P",
+	            "paxStatus": "On time"
+	        },
+	        "type": {
+	            "mealCode": " ",
+	            "intOrDom": "I",
+	            "kickOffFlt": "N",
+	            "dblProvision": "N"
+	        },
+	        "codeShareInfo": {
+	            "marketCode": "AA",
+	            "operatedBy": {
+	                "IATA": "AA",
+	                "flightNbr": "9230"
+	            }
+	        }
+	    }
+	}
+}

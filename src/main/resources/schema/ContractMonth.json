@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"id": "resource:ContractMonth_Json_Schema.json#",
+	"additionalProperties": false,
+	"type": "array",
+	"title": "ContractMonth Schema",
+	"items": {
+		"additionalProperties": false,
+		"properties": {
+			"contractMonth": {
+				"additionalProperties": false,
+				"type": "object",
+				"properties": {
+					"additionalProperties": false,
+					"contractMonthKey": {
+						"type": "object",
+                      	"additionalProperties": false,
+						"properties": {
+                            "fosPartitionCode": {
+                            	"type": "string"
+                            },
+                            "contractMonth": {
+                            	"type": "string"
+                            }
+						}
+					},
+					"type": {
+						"type": "string"
+					},
+					"startDate": {
+						"type": "string"
+					},
+					"endDate": {
+						"type": "string"
+					},
+					"startTime": {
+						"type": "string"
+					},
+					"endTime": {
+						"type": "string"
+					},
+					"sourceTimeStamp": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

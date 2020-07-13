@@ -1,0 +1,64 @@
+{"flight":
+	{
+	    "event": "DIVERSION",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240ea19b",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T13:48:41.0370000",
+	        "fltHubTimeStamp": "2020-05-12T13:48:42.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "9230",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "ORD",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "JFK",
+	            "dupArrStaNum": "0",
+	            "originalArr": "LHR"
+	        },
+	        "departureArrival": {
+	            "depGate": " ",
+	            "depTerminal": "T3"
+	        },
+	        "times": {
+	            "STD": "2020-05-11T15:00:00.0000000",
+	            "STA": "2020-05-11T17:07:00.0000000",
+	            "LTD": "2020-05-11T15:10:00.0000000",
+	            "LTA": "2020-05-11T18:10:00.0000000",
+	            "EON": "2020-05-11T18:10:00.0000000",
+	            "skdTaxiOut": "PT0M",
+	            "skdTaxiIn": "PT0M",
+	            "latestTaxiOut": "PT0M",
+	            "latestTaxiIn": "PT0M",
+	            "depGMTAdjustment": "-PT5H0M",
+	            "arrGMTAdjustment": "-PT4H0M",
+	            "legArrDOM": "2020-05-11"
+	        },
+	        "linkage": {
+	            "nextLegFltNum": "9230",
+	            "nextLegOrgDate": "2020-05-11",
+	            "nextLegFltDupCode": "0"
+	        },
+	        "planners": {
+	            "dispDesk": "FD58"
+	        },
+	        "status": {
+	            "leg": "D",
+	            "dep": "F",
+	            "arr": "E",
+	            "paxStatus": "Diverted: JFK"
+	        },
+	        "reason": {
+	            "code": "AWD"
+	        }
+	    }
+	}
+}

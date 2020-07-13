@@ -1,0 +1,74 @@
+{"flight":
+	{
+	    "event": "CREATE",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240e80d5",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T13:48:07.0630000",
+	        "fltHubTimeStamp": "2020-05-12T13:48:10.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "9222",
+	        "fltOrgDate": "2020-05-12",
+	        "depSta": "MIA",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "cycled": 1,
+	    "leg": {
+	        "stations": {
+	            "arr": "MCO",
+	            "dupArrStaNum": "0"
+	        },
+	        "equipment": {
+	            "skdEquipType": "772M",
+	            "skdNumericEquipType": "AF",
+	            "equipReq": "00",
+	            "sasEquipCode": "777"
+	        },
+	        "times": {
+	            "STD": "2020-05-12T17:00:00.0000000",
+	            "STA": "2020-05-12T17:45:00.0000000",
+	            "LTD": "2020-05-12T17:00:00.0000000",
+	            "LTA": "2020-05-12T17:45:00.0000000",
+	            "skdTaxiOut": "PT17M",
+	            "skdTaxiIn": "PT11M",
+	            "depGMTAdjustment": "-PT4H0M",
+	            "arrGMTAdjustment": "-PT4H0M",
+	            "OGT": "PT1H0M",
+	            "legDepDOM": "2020-05-12",
+	            "legArrDOM": "2020-05-12"
+	        },
+	        "planners": {
+	            "dispDesk": "FD26",
+	            "loadPlanner": "LD01"
+	        },
+	        "status": {
+	            "leg": " ",
+	            "dep": "S",
+	            "arr": "S",
+	            "paxStatus": "On time"
+	        },
+	        "type": {
+	            "deiceInd": " ",
+	            "callSign": "AAL9222",
+	            "mealCode": " ",
+	            "intOrDom": "D",
+	            "kickOffFlt": "N",
+	            "antiIceInd": "false",
+	            "dblProvision": "N"
+	        },
+	        "codeShareInfo": {
+	            "marketCode": "AA",
+	            "operatedBy": {
+	                "IATA": "AA",
+	                "flightNbr": "9222"
+	            }
+	        }
+	    }
+	}
+}

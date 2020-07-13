@@ -1,0 +1,50 @@
+{"flight":
+	{
+	    "event": "CANCEL",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240e5fdf",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T13:47:06.0240000",
+	        "fltHubTimeStamp": "2020-05-12T13:47:10.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "9284",
+	        "fltOrgDate": "2020-05-13",
+	        "depSta": "AUS",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "cycled": 1,
+	    "leg": {
+	        "stations": {
+	            "arr": "DFW",
+	            "dupArrStaNum": "0"
+	        },
+	        "equipment": {
+	            "assignedTail": " ",
+	            "assignedEquipType": "738M",
+	            "assignedNumericEquipType": "25"
+	        },
+	        "times": {
+	            "STD": "2020-05-14T02:12:00.0000000",
+	            "STA": "2020-05-14T03:12:00.0000000",
+	            "depGMTAdjustment": "-PT5H0M",
+	            "arrGMTAdjustment": "-PT5H0M"
+	        },
+	        "status": {
+	            "leg": "Z",
+	            "dep": "S",
+	            "arr": "S",
+	            "paxStatus": "Canceled"
+	        },
+	        "reason": {
+	            "code": "XAT",
+	            "information": "ADD"
+	        }
+	    }
+	}
+}

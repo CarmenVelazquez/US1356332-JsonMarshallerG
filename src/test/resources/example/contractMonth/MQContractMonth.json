@@ -1,0 +1,230 @@
+[
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "APR2020"
+        },
+        "type": "R",
+        "startDate": "2020-04-01",
+        "endDate": "2020-04-30",
+        "startTime": "2020-04-01T00:00:00",
+        "endTime": "2020-04-30T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "MAR2020"
+        },
+        "type": "R",
+        "startDate": "2020-03-02",
+        "endDate": "2020-03-31",
+        "startTime": "2020-03-02T00:00:00",
+        "endTime": "2020-03-31T23:59:59",
+        "sourceTimeStamp": "2020-06-01T04:45:21"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "FEB2020"
+        },
+        "type": "R",
+        "startDate": "2020-01-31",
+        "endDate": "2020-03-01",
+        "startTime": "2020-01-31T00:00:00",
+        "endTime": "2020-03-01T23:59:59",
+        "sourceTimeStamp": "2020-05-01T04:45:16"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "JAN2020"
+        },
+        "type": "R",
+        "startDate": "2020-01-01",
+        "endDate": "2020-01-30",
+        "startTime": "2020-01-01T00:00:00",
+        "endTime": "2020-01-30T23:59:59",
+        "sourceTimeStamp": "2020-04-01T04:45:09"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "DEC2020"
+        },
+        "type": "R",
+        "startDate": "2020-12-02",
+        "endDate": "2020-12-31",
+        "startTime": "2020-12-02T00:00:00",
+        "endTime": "2020-12-31T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "NOV2020"
+        },
+        "type": "R",
+        "startDate": "2020-11-01",
+        "endDate": "2020-12-01",
+        "startTime": "2020-11-01T00:00:00",
+        "endTime": "2020-12-01T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "OCT2020"
+        },
+        "type": "R",
+        "startDate": "2020-10-01",
+        "endDate": "2020-10-31",
+        "startTime": "2020-10-01T00:00:00",
+        "endTime": "2020-10-31T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "SEP2020"
+        },
+        "type": "R",
+        "startDate": "2020-08-31",
+        "endDate": "2020-09-30",
+        "startTime": "2020-08-31T00:00:00",
+        "endTime": "2020-09-30T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "AUG2020"
+        },
+        "type": "R",
+        "startDate": "2020-08-01",
+        "endDate": "2020-08-30",
+        "startTime": "2020-08-01T00:00:00",
+        "endTime": "2020-08-30T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "JUL2020"
+        },
+        "type": "O",
+        "startDate": "2020-07-02",
+        "endDate": "2020-07-31",
+        "startTime": "2020-07-02T00:00:00",
+        "endTime": "2020-07-31T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "JUN2020"
+        },
+        "type": "C",
+        "startDate": "2020-06-01",
+        "endDate": "2020-07-01",
+        "startTime": "2020-06-01T00:00:00",
+        "endTime": "2020-07-01T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "MAY2020"
+        },
+        "type": "R",
+        "startDate": "2020-05-01",
+        "endDate": "2020-05-31",
+        "startTime": "2020-05-01T00:00:00",
+        "endTime": "2020-05-31T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "DEC2019"
+        },
+        "type": "R",
+        "startDate": "2019-12-02",
+        "endDate": "2019-12-31",
+        "startTime": "2019-12-02T00:00:00",
+        "endTime": "2019-12-31T23:59:59",
+        "sourceTimeStamp": "2020-03-02T05:45:18"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "NOV2019"
+        },
+        "type": "R",
+        "startDate": "2019-11-01",
+        "endDate": "2019-12-01",
+        "startTime": "2019-11-01T00:00:00",
+        "endTime": "2019-12-01T23:59:59",
+        "sourceTimeStamp": "2020-01-31T04:45:36"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "OCT2019"
+        },
+        "type": "R",
+        "startDate": "2019-10-01",
+        "endDate": "2019-10-31",
+        "startTime": "2019-10-01T00:00:00",
+        "endTime": "2019-10-31T23:59:59",
+        "sourceTimeStamp": "2020-01-01T05:46:28"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "SEP2019"
+        },
+        "type": "R",
+        "startDate": "2019-08-31",
+        "endDate": "2019-09-30",
+        "startTime": "2019-08-31T00:00:00",
+        "endTime": "2019-09-30T23:59:59",
+        "sourceTimeStamp": "2019-12-02T05:47:04"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "JAN2021"
+        },
+        "type": "R",
+        "startDate": "2021-01-01",
+        "endDate": "2021-01-30",
+        "startTime": "2021-01-01T00:00:00",
+        "endTime": "2021-01-30T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "FEB2021"
+        },
+        "type": "R",
+        "startDate": "2021-01-31",
+        "endDate": "2021-03-01",
+        "startTime": "2021-01-31T00:00:00",
+        "endTime": "2021-03-01T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    },
+    {
+        "contractMonthKey": {
+            "fosPartitionCode": "MQ",
+            "contractMonth": "MAR2021"
+        },
+        "type": "R",
+        "startDate": "2021-03-02",
+        "endDate": "2021-03-31",
+        "startTime": "2021-03-02T00:00:00",
+        "endTime": "2021-03-31T23:59:59",
+        "sourceTimeStamp": "2020-06-03T14:46:22"
+    }
+]

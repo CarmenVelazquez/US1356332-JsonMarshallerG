@@ -1,0 +1,62 @@
+{"flight":
+	{
+	    "event": "OUT",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e31124104fd1",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T14:22:09.1330000",
+	        "fltHubTimeStamp": "2020-05-12T14:22:10.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "9231",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "JFK",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "LHR",
+	            "dupArrStaNum": "0"
+	        },
+	        "times": {
+	            "STD": "2020-05-12T02:00:00.0000000",
+	            "STA": "2020-05-12T09:14:00.0000000",
+	            "LTD": "2020-05-12T02:08:00.0000000",
+	            "LTA": "2020-05-12T09:22:00.0000000",
+	            "PTA": "2020-05-12T09:22:00.0000000",
+	            "latestTaxiOut": "PT0M",
+	            "latestTaxiIn": "PT0M",
+	            "actualOut": "2020-05-12T02:08:00.0000000",
+	            "depGMTAdjustment": "-PT4H0M",
+	            "arrGMTAdjustment": "PT1H0M",
+	            "autoETDAccumMins": "PT0M"
+	        },
+	        "status": {
+	            "leg": "C",
+	            "dep": "O",
+	            "arr": "P",
+	            "paxStatus": "Awaiting takeoff"
+	        },
+	        "type": {
+	            "deiceInd": " ",
+	            "captQuals": " ",
+	            "fltRelStatus": " ",
+	            "antiIceInd": "false"
+	        }
+	    },
+	    "delayCodes": {
+	        "thru": [
+	            {
+	                "order": 1,
+	                "code": "DVR",
+	                "time": "PT8M"
+	            }
+	        ]
+	    }
+	}
+}

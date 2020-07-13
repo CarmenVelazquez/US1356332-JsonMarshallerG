@@ -1,0 +1,101 @@
+{"flight":
+	{
+	    "event": "PSGRLOAD",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311240b42db",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T13:02:48.6830000",
+	        "fltHubTimeStamp": "2020-05-12T13:02:51.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "2907",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "DFW",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "DCA",
+	            "dupArrStaNum": "0"
+	        },
+	        "times": {
+	            "STD": "2020-05-11T19:38:00.0000000",
+	            "STA": "2020-05-11T22:41:00.0000000",
+	            "depGMTAdjustment": "-PT5H0M",
+	            "arrGMTAdjustment": "-PT4H0M"
+	        },
+	        "paxCounts": {
+	            "planned": 0,
+	            "thru": 0,
+	            "downline": 0
+	        },
+	        "status": {
+	            "leg": " ",
+	            "dep": "S",
+	            "arr": "I"
+	        },
+	        "payloadAndWeights": {
+	            "payload": 5100,
+	            "loadStatus": "P"
+	        }
+	    },
+	    "loadPlanPaxCounts": {
+	        "status": "I",
+	        "thruPaxUpdateInd": "N",
+	        "counts": {
+	            "paxDataItems": "4",
+	            "localJumpSeat": 0,
+	            "thruJumpSeat": 0
+	        },
+	        "pax": [
+	            {
+	                "clazz": "F",
+	                "local": {
+	                    "paxCount": 1,
+	                    "childCount": 0,
+	                    "excessWeight": 0,
+	                    "ttlPsgrWgt": 190
+	                }
+	            },
+	            {
+	                "clazz": "C",
+	                "local": {
+	                    "paxCount": 0,
+	                    "childCount": 0,
+	                    "excessWeight": 0,
+	                    "ttlPsgrWgt": 0
+	                }
+	            },
+	            {
+	                "clazz": "W",
+	                "local": {
+	                    "paxCount": 0,
+	                    "childCount": 0,
+	                    "excessWeight": 0,
+	                    "ttlPsgrWgt": 0
+	                }
+	            },
+	            {
+	                "clazz": "Y",
+	                "local": {
+	                    "paxCount": 23,
+	                    "childCount": 0,
+	                    "excessWeight": 0,
+	                    "ttlPsgrWgt": 4370
+	                }
+	            }
+	        ],
+	        "xRider": {
+	            "localF": 0,
+	            "thruF": 0,
+	            "localY": 0,
+	            "thruY": 0
+	        }
+	    }
+	}
+}

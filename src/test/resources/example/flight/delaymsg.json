@@ -1,0 +1,50 @@
+{"flight":
+	{
+	    "event": "DELAYMSG",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e311241114bf",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T14:38:09.0770000",
+	        "fltHubTimeStamp": "2020-05-12T14:38:14.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "1829",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "CLT",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "SYR",
+	            "dupArrStaNum": "0"
+	        },
+	        "times": {
+	            "STD": "2020-05-12T00:05:00.0000000",
+	            "STA": "2020-05-12T01:50:00.0000000",
+	            "actualOut": "2020-05-12T00:07:00.0000000",
+	            "depGMTAdjustment": "-PT4H0M",
+	            "arrGMTAdjustment": "-PT4H0M"
+	        },
+	        "status": {
+	            "leg": " ",
+	            "dep": "F",
+	            "arr": "I"
+	        },
+	        "reason": {}
+	    },
+	    "delayCodes": {
+	        "local": [
+	            {
+	                "order": 1,
+	                "code": "SD",
+	                "time": "PT2M"
+	            }
+	        ]
+	    }
+	}
+}

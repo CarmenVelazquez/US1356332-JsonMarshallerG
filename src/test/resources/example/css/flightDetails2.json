@@ -1,0 +1,318 @@
+[
+    {
+        "airlineCode": "AA",
+        "flightNumber": 2635,
+        "flightOriginationDate": "2020-05-21",
+        "departureCity": "DFW",
+        "numberOfCrewMembers": 6,
+        "crewMembers": [
+            {
+                "positionCode": "CA",
+                "sequenceNumber": 19328,
+                "sequenceOriginationDate": "2020-05-21",
+                "crewDHD": false,
+                "employeeNumber": 168681,
+                "base": "MIA",
+                "firstName": "DAVID",
+                "lastName": "GRAHAM",
+                "nickName": "DAVE",
+                "seniorityNumber": "2771",
+                "cockpitQualifications": [
+                    {
+                        "equipmentGroup": "737",
+                        "landingExpirationDate": "2020-08-20",
+                        "lastFlownDate": "2020-06-04",
+                        "currentQualification": {
+                            "captain": true,
+                            "firstOfficer": true,
+                            "flightEngineer": false
+                        },
+                        "divisionQuals": [
+                            "US",
+                            "LT",
+                            "GUC",
+                            "JAC",
+                            "GUA",
+                            "UIO",
+                            "MEX",
+                            "LA"
+                        ],
+                        "restricted75hr": false,
+                        "position": "C"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2028-08-21"
+                    }
+                ]
+            },
+            {
+                "positionCode": "FO",
+                "sequenceNumber": 19328,
+                "sequenceOriginationDate": "2020-05-21",
+                "crewDHD": false,
+                "employeeNumber": 591690,
+                "base": "MIA",
+                "firstName": "ELIZABETH",
+                "lastName": "FIELDER",
+                "nickName": "BETH",
+                "seniorityNumber": "13340",
+                "cockpitQualifications": [
+                    {
+                        "equipmentGroup": "737",
+                        "landingExpirationDate": "2020-08-20",
+                        "lastFlownDate": "2020-05-29",
+                        "currentQualification": {
+                            "captain": false,
+                            "firstOfficer": true,
+                            "flightEngineer": false
+                        },
+                        "divisionQuals": [
+                            "US",
+                            "LT",
+                            "GUC",
+                            "JAC",
+                            "UIO",
+                            "MEX",
+                            "LA"
+                        ],
+                        "restricted75hr": false,
+                        "position": "F"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2028-05-04"
+                    }
+                ]
+            },
+            {
+                "positionCode": "01",
+                "sequenceNumber": 8182,
+                "sequenceOriginationDate": "2020-05-20",
+                "crewDHD": false,
+                "employeeNumber": 862970,
+                "base": "DFW",
+                "firstName": "HYUN JU",
+                "lastName": "LEE",
+                "nickName": "RACHEL",
+                "seniorityNumber": "23887",
+                "languageQuals": [
+                    "KO"
+                ],
+                "serviceQuals": [
+                    {
+                        "number": 1,
+                        "description": "SEC",
+                        "initDomDate": "2016-12-07",
+                        "initIntlDate": "2016-12-07",
+                        "recurDomDate": "2019-12-07",
+                        "recurIntlDate": "2019-12-07"
+                    },
+                    {
+                        "number": 3,
+                        "description": "TFS",
+                        "initDomDate": "2016-12-07",
+                        "recurDomDate": "2016-12-07"
+                    },
+                    {
+                        "number": 4,
+                        "description": "IPE",
+                        "initDomDate": "2016-12-07",
+                        "recurDomDate": "2016-12-07"
+                    },
+                    {
+                        "number": 7,
+                        "description": "LIC",
+                        "initDomDate": "2016-12-07",
+                        "initIntlDate": "2016-12-07",
+                        "recurDomDate": "2016-12-07",
+                        "recurIntlDate": "2016-12-07"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "KR",
+                        "expirationDate": "2023-03-22"
+                    },
+                    {
+                        "licenseType": "AR",
+                        "countryName": "US",
+                        "expirationDate": "2018-02-10"
+                    },
+                    {
+                        "licenseType": "VI",
+                        "countryName": "CHINA",
+                        "expirationDate": "2021-08-29"
+                    }
+                ]
+            },
+            {
+                "positionCode": "02",
+                "sequenceNumber": 8182,
+                "sequenceOriginationDate": "2020-05-20",
+                "crewDHD": false,
+                "employeeNumber": 711932,
+                "base": "DFW",
+                "firstName": "CATHERINE",
+                "lastName": "DAVIS",
+                "nickName": "KATY",
+                "seniorityNumber": "25565",
+                "serviceQuals": [
+                    {
+                        "number": 1,
+                        "description": "SEC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2019-08-06",
+                        "recurIntlDate": "2019-08-06"
+                    },
+                    {
+                        "number": 3,
+                        "description": "TFS",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 4,
+                        "description": "IPE",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 7,
+                        "description": "LIC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11",
+                        "recurIntlDate": "2018-05-11"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2028-02-01"
+                    },
+                    {
+                        "licenseType": "VI",
+                        "countryName": "CHINA",
+                        "expirationDate": "2023-05-16"
+                    }
+                ]
+            },
+            {
+                "positionCode": "03",
+                "sequenceNumber": 8182,
+                "sequenceOriginationDate": "2020-05-20",
+                "crewDHD": false,
+                "employeeNumber": 706921,
+                "base": "DFW",
+                "firstName": "ABBY",
+                "lastName": "GREENE",
+                "seniorityNumber": "25661",
+                "serviceQuals": [
+                    {
+                        "number": 1,
+                        "description": "SEC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2019-08-06",
+                        "recurIntlDate": "2019-08-06"
+                    },
+                    {
+                        "number": 3,
+                        "description": "TFS",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 4,
+                        "description": "IPE",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 7,
+                        "description": "LIC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11",
+                        "recurIntlDate": "2018-05-11"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2021-02-10"
+                    }
+                ]
+            },
+            {
+                "positionCode": "04",
+                "sequenceNumber": 8182,
+                "sequenceOriginationDate": "2020-05-20",
+                "crewDHD": false,
+                "employeeNumber": 708873,
+                "base": "DFW",
+                "firstName": "MELISSA",
+                "lastName": "FRY",
+                "seniorityNumber": "25645",
+                "languageQuals": [
+                    "GE",
+                    "DU"
+                ],
+                "serviceQuals": [
+                    {
+                        "number": 1,
+                        "description": "SEC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2019-08-06",
+                        "recurIntlDate": "2019-08-06"
+                    },
+                    {
+                        "number": 3,
+                        "description": "TFS",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 4,
+                        "description": "IPE",
+                        "initDomDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11"
+                    },
+                    {
+                        "number": 7,
+                        "description": "LIC",
+                        "initDomDate": "2018-05-11",
+                        "initIntlDate": "2018-05-11",
+                        "recurDomDate": "2018-05-11",
+                        "recurIntlDate": "2018-05-11"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2023-01-01"
+                    },
+                    {
+                        "licenseType": "VI",
+                        "countryName": "CHINA",
+                        "expirationDate": "2024-02-08"
+                    }
+                ]
+            }
+        ],
+        "duplicateDepartureCode": 0
+    }
+]

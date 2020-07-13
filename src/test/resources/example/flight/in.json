@@ -1,0 +1,44 @@
+{"flight":
+	{
+	    "event": "IN",
+	    "version": "2",
+	    "trackingID": "414d512046484d5154433120202020205eb5e31124104fe9",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-12T14:23:11.1180000",
+	        "fltHubTimeStamp": "2020-05-12T14:23:14.0000000"
+	    },
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "fltNum": "0760",
+	        "fltOrgDate": "2020-05-11",
+	        "depSta": "PHX",
+	        "dupDepStaNum": "0"
+	    },
+	    "fosPartition": "AA",
+	    "leg": {
+	        "stations": {
+	            "arr": "LAX",
+	            "dupArrStaNum": "0"
+	        },
+	        "times": {
+	            "STD": "2020-05-11T23:50:00.0000000",
+	            "STA": "2020-05-12T01:23:00.0000000",
+	            "LTA": "2020-05-12T02:03:00.0000000",
+	            "latestTaxiIn": "PT12M",
+	            "actualOn": "2020-05-12T01:51:00.0000000",
+	            "actualIn": "2020-05-12T02:03:00.0000000",
+	            "depGMTAdjustment": "-PT7H0M",
+	            "arrGMTAdjustment": "-PT7H0M"
+	        },
+	        "status": {
+	            "leg": " ",
+	            "dep": "F",
+	            "arr": "I",
+	            "paxStatus": "Arrived at gate"
+	        }
+	    }
+	}
+}

@@ -1,0 +1,55 @@
+[
+    {
+        "airlineCode": "AA",
+        "flightNumber": 2635,
+        "flightOriginationDate": "2020-05-21",
+        "departureCity": "DFW",
+        "numberOfCrewMembers": 6,
+        "crewMembers": [
+            {
+                "positionCode": "CA",
+                "sequenceNumber": 19328,
+                "sequenceOriginationDate": "2020-05-21",
+                "crewDHD": false,
+                "employeeNumber": 168681,
+                "base": "MIA",
+                "firstName": "DAVID",
+                "lastName": "GRAHAM",
+                "nickName": "DAVE",
+                "seniorityNumber": "2771",
+                "cockpitQualifications": [
+                    {
+                        "equipmentGroup": "737",
+                        "landingExpirationDate": "2020-08-20",
+                        "lastFlownDate": "2020-06-04",
+                        "currentQualification": {
+                            "captain": true,
+                            "firstOfficer": true,
+                            "flightEngineer": false
+                        },
+                        "divisionQuals": [
+                            "US",
+                            "LT",
+                            "GUC",
+                            "JAC",
+                            "GUA",
+                            "UIO",
+                            "MEX",
+                            "LA"
+                        ],
+                        "restricted75hr": false,
+                        "position": "C"
+                    }
+                ],
+                "passportOrVisaInfos": [
+                    {
+                        "licenseType": "FP",
+                        "countryName": "US",
+                        "expirationDate": "2028-08-21"
+                    }
+                ]
+            }
+        ],
+        "duplicateDepartureCode": 0
+    }
+]

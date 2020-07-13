@@ -1,0 +1,77 @@
+{"flight":
+	{
+	    "LUSInd": "N",
+	    "cycled": "true",
+	    "version": "1",
+	    "fosPartition": "AA",
+	    "cargoItems": {
+	        "cargoItem": [
+	            {
+	                "commodity": {
+	                	"value": "AG"
+	                },
+	                "offPointDestination": "ORD",
+	                "unitID": "DFWA1463",
+	                "actualWeight": "1",
+	                "finalDestination": "ORD",
+	                "lineNumber": "1"
+	            },
+	            {
+	                "commodity": {
+	                	"value": "XL"
+	                },
+	                "offPointDestination": "ORD",
+	                "unitID": "DFWS1463",
+	                "actualWeight": "60",
+	                "remarks": "1P 76211634",
+	                "finalDestination": "ORD",
+	                "lineNumber": "2"
+	            }
+	        ]
+	    },
+	    "event": "CARGO",
+	    "dataTime": {
+	        "sourceTimeStamp": "2020-05-18T21:50:24.6680000",
+	        "fltHubTimeStamp": "2020-05-18T21:50:26.0000000"
+	    },
+	    "trackingID": "414d512046484d5150433120202020205eb4ca9b2235ae92",
+	    "key": {
+	        "airlineCode": {
+	            "IATA": "AA",
+	            "ICAO": "AAL"
+	        },
+	        "dupDepStaNum": "0",
+	        "fltNum": "1463",
+	        "fltOrgDate": "2020-05-18",
+	        "depSta": "DFW"
+	    },
+	    "leg": {
+	        "status": {
+	            "arr": "P",
+	            "dep": "E",
+	            "leg": ""
+	        },
+	        "stations": {
+	            "arr": "ORD",
+	            "dupArrStaNum": "0"
+	        },
+	        "type": {},
+	        "equipment": {
+	            "assignedTail": "3CY",
+	            "assignedEquipType": "738D",
+	            "assignedNumericEquipType": "B9"
+	        },
+	        "times": {
+	            "STA": "2020-05-19T00:19:00.0000000",
+	            "STD": "2020-05-18T21:45:00.0000000",
+	            "arrGMTAdjustment": "-PT5H0M",
+	            "OGT": "PT1H5M",
+	            "depGMTAdjustment": "-PT5H0M"
+	        },
+	        "payloadAndWeights": {
+	            "loadStatus": "R",
+	            "payload": "11081"
+	        }
+	    }
+	}
+}
