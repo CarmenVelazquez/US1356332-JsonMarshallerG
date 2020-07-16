@@ -1,0 +1,10 @@
+type: maven
+integrationBranches:
+  -InitialCommit
+pipelineAdministrators:
+  -761985
+  - 'corpaa\761985'
+notifications:
+  onlyOnIntegration: true
+  emails:
+    -dilpal.chhabra@aa.com
