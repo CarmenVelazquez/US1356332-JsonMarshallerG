@@ -113,7 +113,7 @@ timestamps {
                 nexus.verifyDeployableExistsInNexus(applicationName,
                         artifactModel,
                         artifactModel.sourceEnvironmentName,
-                        'public',
+                        'ci-builds',
                         nexusInstanceId)
                 artifactModel.calculateDestinationRepo()
 
