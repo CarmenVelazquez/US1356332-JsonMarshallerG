@@ -1,0 +1,322 @@
+#!/usr/bin/env groovy
+
+// Deploy for DEFAULT build in repo
+
+//  Variety: application with config
+//  Features:
+//      Executable (jar/war/etc) is in Nexus
+//      config.tar.gz files with properties for each deployment environment are in Nexus
+//      Archive info.yaml file from Nexus
+//      Tags commit of original build with deploy message and env name
+//      Tags deployment from master and any promotion
+
+// How to use this template. Things to fill in (simplest cases) search for 'fill-in'
+//  1) GitHub repo URL without .git on the end
+//  2) Display name to describe build results
+//  3) Customize environmentNameList list of environments to match resources-env folders. This should
+//         be the same in Jenkinsfile, Jenkinsfile-deploy and Jenkinsfile-promote
+//  4) Configure ipAddresses data structure with all environment's hostnames/ips
+//  5) Fill in application name when finding artifacts in repo
+//  6) Fill in warFilename used for deployed war file in tcServer webapps folder
+//  7) Fill in team name as part of the Jenkins group allowing access to deploy
+//  9) Create resources-env folder and contents similar to in the build template for each environment
+// 10) Update the email list with space delimited emails to receive notifications
+//
+// Additionally many other bits of code can be customized. Only do this if really needed so
+//  you can take advantage of improvements to this template
+
+import groovy.transform.Field
+import com.aa.jenkins.pipeline.ArtifactModel
+
+@Field final String gitRepoUrl = 'https://ghe.aa.com/aot-foct/CQE_JsonUnMarshaller'    // git repo without .git on end
+@Field final String gitRepoDisplayName = 'CQE_JsonUnMarshaller'              // discription of git repo for humans to read
+@Field final String applicationName = "JsonUnMarshaller"        // display for application in error messages
+@Field final String warBaseFilename = "warFilename-fill-in"             // name war is given on server VM
+@Field final String appnamePermissionPrefix = 'CWR'                 // short application initials eg. CCS, LKA, FACET, etc
+
+def ipAddressChoices = [
+        'htvrad0xxxx.qcorpaa.aa.com:dev-1',
+].join('\n')
+
+Map<String, List<String>> ipAddresses = [
+        'dev-1'    : [
+                'htappd0xxxx.qcorpaa.aa.com',
+        ],
+        'test-1'   : [
+                'htappd01334.qcorpaa.aa.com',
+                'htappd01335.qcorpaa.aa.com',
+                'htappd01336.qcorpaa.aa.com',
+        ],
+        'stage-cdc': [],
+        'stage-pdc': [],
+        'prod-cdc' : [],
+        'prod-pdc' : [],
+]
+
+Map<String, String> dataCenters = [
+        'dev-1'    : 'HDQ2_LAB',
+        'test-1'   : 'HDQ2_LAB',
+        'stage-cdc': 'IBM_CDC',
+        'prod-cdc' : 'IBM_CDC',
+        'stage-pdc': 'IBM_PDC',
+        'prod-pdc' : 'IBM_PDC'
+]
+
+properties properties: [
+        pipelineTriggers([]),
+        disableConcurrentBuilds(),
+        [$class: 'GithubProjectProperty', displayName: gitRepoDisplayName, projectUrlStr: gitRepoUrl],
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
+        parameters([
+                choice(choices: ipAddressChoices, description: 'Server IP/name', name: 'IP_ADDRESS_ENV'),
+                string(defaultValue: env.VERSION, description: 'Specify the version to deploy', name: 'VERSION'),
+                booleanParam(defaultValue: false,
+                        description: "Don't deploy. Stop ${applicationName} instance?", name: 'SHOULD_STOP_INSTANCE'),
+        ])
+]
+
+notify = new com.aa.jenkins.pipeline.notify()
+structure = new com.aa.jenkins.pipeline.structure()
+report = new com.aa.jenkins.pipeline.report()
+nexus = new com.aa.jenkins.pipeline.nexus()
+deploy = new com.aa.jenkins.pipeline.deploy()
+security = (new com.aa.jenkins.pipeline.security()).setScript(this)
+
+// @Field final String deployableArtifactFolder = ''
+@Field final String pomFilename = 'pom.xml'
+@Field final String nexusInstanceId = 'enterprise-artifactory' // 'aot-nexus-2'
+@Field String environmentName
+@Field String dataCenterName
+@Field boolean isEnvironmentInLab
+
+@Field final String serverName
+@Field final String ipAddress
+
+@Field String branch = null
+
+Map<String, Object> stageReportParams
+ArtifactModel artifactModel
+
+@Field String emailList = 'fill-in@aa.com' // space delimited list
+@Field String gitCreds = 'GHE-GitHub-CICD-Z1059754'
+
+@Field String stageName
+timestamps {
+    if (!params?.IP_ADDRESS_ENV || !params?.VERSION) {
+        error "ERROR: First run (without parameters) will always fail"
+    }
+
+    if (!listAndMapsAreEqual(ipAddresses.keySet(), dataCenters.keySet())) {
+        error("Environment data list and maps don't match")
+    }
+    deploy.validateDataCenters(dataCenters)
+
+    // Expected format from parameters: IP_ADDRESS:ENV-SUB
+    String[] tokens = params.IP_ADDRESS_ENV.split(/:/) as String[]
+    serverName = tokens[1]
+    if (serverName.contains('-')) {
+        environmentName = serverName.split(/-/)[0]
+    } else {
+        environmentName = serverName
+    }
+    dataCenterName = dataCenters[serverName]
+    ipAddress = tokens[0]
+
+    echo "environmentName: ${environmentName}"
+    isEnvironmentInLab = deploy.isEnvironmentLab(environmentName)
+    if (isEnvironmentInLab) {
+        def userid = structure.getBuildUser()
+        echo "USER STARTING BUILD: ${userid} ... CHECKING PERMISSIONS"
+        if (!security.checkPermission(env.JOB_NAME, appnamePermissionPrefix, environmentName, userid)) {
+            error "User ${userid} not allowed to deploy to ${environmentName}"
+        }
+        echo "USER allowed to deploy to ${environmentName}"
+    }
+
+    def nodeLabel = deploy.pickJenkinsNodeLabel(dataCenterName, 'docker')
+    node(nodeLabel) {
+        stageName = 'deploy'
+        stage(stageName) {
+//            sh 'pwd ; ls -al ; env | sort' // debug
+
+            branch = structure.gitBranchFromScm(scm)
+            echo "branch=${branch}"
+            echo 'dataCenter=${dataCenterName}'
+
+            notify.notifySlack("START")
+
+            if (env.EMAIL_LIST) {
+                emailList = env.EMAIL_LIST
+            }
+
+            if (env.GIT_USER) {
+                gitCreds = env.GIT_USER
+            }
+
+            structure.withNotification(to: emailList, includeDevelopers: true, stageName: stageName) {
+                checkout scm
+
+                stageReportParams = report.stageCompleted(stageName: "git", branch: branch, pomFilename: /* withTrailingSlash(deployableArtifactFolder) + */ pomFilename, gitRepoUrl: gitRepoUrl)
+
+                //stash name: 'common-checkout'
+
+                List<String> ipAddressList = ipAddresses.get(serverName)
+                for (String theIpAddress in ipAddressList) {
+                    if (params.SHOULD_STOP_INSTANCE) {
+                        stopInstance(theIpAddress)
+                        continue
+                    }
+                    artifactModel = nexus.readArtifactModel(
+                            /* withTrailingSlash(deployableArtifactFolder) + */ pomFilename)
+                    artifactModel.version = params.VERSION
+                    artifactModel.defaultFilePath(/* deployableArtifactFolder */)
+//                    artifactModel.packaging = 'sh' // Use this for spring boot executable jar/war
+                    nexus.verifyDeployableExistsInNexus(applicationName,
+                            artifactModel,
+                            environmentName,
+                            'ci-builds',
+                            nexusInstanceId)
+
+                    Map<String, String> additionalProperties = [
+                            webapps_war_basename: warBaseFilename,
+                    ]
+
+                    String myInstallFolder = /* withTrailingSlash(deployableArtifactFolder) + */ 'src/main/install'
+                    deploy.prepareInstallPropertiesFile(
+                            myInstallFolder,
+                            'commonInstall.properties',
+                            additionalProperties,
+                            artifactModel,
+                            theIpAddress,
+                            environmentName,
+                            nexusInstanceId,
+                            dataCenterName)
+
+                    deploy.deployFromNexus(theIpAddress, myInstallFolder /*, 'bin-subfolder-if-multiple-apps-on-server'*/)
+                }
+
+                if (params.SHOULD_STOP_INSTANCE) {
+                    return
+                }
+                report.stageCompleted(stageName: "deploy" + serverName.capitalize(), params: stageReportParams)
+            }
+        }
+        if (params.SHOULD_STOP_INSTANCE) {
+            echo "SUCCESS : Job '${env.JOB_NAME} Stopped ${applicationName} instance [${env.BUILD_NUMBER} ${branch}]'"
+            notify.notifySuccess(msg: "Stopped ${applicationName} instance", to: emailList, includeDevelopers: true)
+            return
+        }
+
+        stageName = 'inspec'
+        stage(stageName) {
+            structure.withNotification(to: emailList, stageName: stageName) {
+                String inspecFile = /* withTrailingSlash(deployableArtifactFolder) + */ 'src/test/inspec/tcserver.rb'
+                if (fileExists(inspecFile)) {
+                    String dockerImageRegistry = structure.dockerImageRegistry()
+                    echo "DOCKER IMAGE REGISTRY: ${dockerImageRegistry}"
+
+//                    String dockerImageId = structure.getDockerImageId('chef/inspec', '3.9.7')
+                    docker.withRegistry("http://${dockerImageRegistry}", 'CICD-Enterprise-Nexus3-Deployer') {
+
+                        List<String> ipAddressList = ipAddresses.get(serverName)
+                        for (String theIpAddress in ipAddressList) {
+                            echo "RUNNING INSPEC TESTS: ${theIpAddress}"
+                            // decide which inspec tests to call
+                            String runTest = "exec ${inspecFile}" +
+                                    " --no-color" +
+                                    " -t ssh://cicduser@${theIpAddress} -i /home/cicduser/.ssh/id_rsa"
+                            // this code is mounting the current folder and the ssh folder to pass in the test files and ssh keys
+                            String runCommand = "docker run -t --rm" +
+                                    " -v \$(pwd):/share -v /home/cicduser/.ssh/id_rsa:/home/cicduser/.ssh/id_rsa" +
+                                    " ${dockerImageRegistry}/chef/inspec:3.9.7 ${runTest}"
+
+                            def r = 999 // to signal no command ever ran
+                            try {
+                                timeout(time: 2, unit: 'MINUTES') {
+                                    waitUntil {
+                                        if (r.toInteger() != 999) {
+                                            println 'RETRY inspec tests'
+                                        }
+                                        r = sh script: runCommand, returnStatus: true
+                                        return (r.toInteger() == 0)
+                                    }
+                                }
+                                println 'TIMEOUT END section'
+                            } catch (org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException e) {
+                                throw e
+                            } catch (e) {
+                                println 'TIMEOUT no retry inspec test succeeded'
+                                if (r.toInteger() != 0) {
+                                    currentBuild.result = 'UNSTABLE'
+                                    println 'WARNING: build status UNSTABLE due to failed inspec tests (' + r + ')'
+                                }
+                            }
+                        }
+                    }
+                    report.stageCompleted(stageName: "inspec" + serverName.capitalize(), params: stageReportParams)
+                } else {
+                    echo 'WARNING: No Inspec tests present. No tests run.'
+                }
+            }
+        }
+
+        stageName = 'tagging'
+        stage(stageName) {
+            if (!currentBuild.result || currentBuild.result == "SUCCESS") {
+                structure.withNotification(to: emailList, stageName: stageName) {
+                    boolean anythingTagged = false
+                    for (ArtifactModel theArtifactModel in [artifactModel,]) {
+                        def infoFile = structure.readInfoFileFromNexus(theArtifactModel, nexusInstanceId, 'target')
+                        String commitSHA = infoFile.commitId
+                        String gitUrl = infoFile.gitURL
+                        echo "TAGGING INFO: >${gitUrl}< >${commitSHA}<"
+
+                        if (commitSHA) {
+                            String versionNumber = theArtifactModel.version
+                            structure.createAndPushTag(versionNumber, "deploy-${serverName}", gitCreds, false, commitSHA, gitUrl)
+                            anythingTagged = true
+                        } else {
+                            println "WARNING: info.yaml not found or corrupted -- no tag created"
+                            currentBuild.result = 'UNSTABLE'
+                            println 'WARNING: build status UNSTABLE due to inability to find info.yaml'
+                        }
+
+                        archiveArtifacts allowEmptyArchive: true, artifacts: infoFile.infoFilePath, onlyIfSuccessful: true
+                    }
+                    if (anythingTagged) {
+                        report.stageCompleted(stageName: "taggingDeploy", params: stageReportParams)
+                    }
+                }
+            } else {
+                println "WARNING: build status=${currentBuild.result}, no tag created"
+            }
+        }
+
+        stageName = 'notifications'
+        stage(stageName) {
+            report.buildCompleted(stageReportParams, currentBuild.startTimeInMillis, System.currentTimeMillis(), true)
+
+            String currentBuildResult = "${currentBuild.result ?: 'SUCCESS'}"
+            echo "${currentBuildResult} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER} ${branch}]'"
+            notify.notifyWithCurrentBuildResult([to: emailList, includeDevelopers: true], currentBuildResult)
+        }
+    }
+}
+
+private boolean listAndMapsAreEqual(Set<String> ipAddressKeys, Set<String> dataCenterKeys) {
+    if (ipAddressKeys != dataCenterKeys) {
+        echo "ipAddress keys   : ${ipAddressKeys}\n" +
+                "data center keys : ${dataCenterKeys}\n" +
+                "ERROR: ipAddresses keys doesn't match datacenter names keys"
+    }
+    return ipAddressKeys == dataCenterKeys
+}
+
+private def stopInstance(String theIpAddress) {
+    String myInstallFolder = /* withTrailingSlash(deployableArtifactFolder) + */ 'src/main/stopinstance'
+    deploy.deployFromNexus(theIpAddress, myInstallFolder, 'stopinstance')
+}
+
+private String withTrailingSlash(String path) {
+    path + (path ? '/' : '')
+}
