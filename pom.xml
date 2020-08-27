@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.aa.cqe</groupId>
 	<artifactId>JsonUnmarshaller</artifactId>
-	<version>0.0.2</version>
+	<version>1.1.0</version>
 	<name>JsonUnmarshaller</name>
 	<description>Unmarshaller</description>
 	<packaging>jar</packaging>
