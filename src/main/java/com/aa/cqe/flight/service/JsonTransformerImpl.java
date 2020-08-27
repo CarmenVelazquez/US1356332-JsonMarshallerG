@@ -33,8 +33,7 @@ public class JsonTransformerImpl<T> implements JsonTransformer<T>{
 	    return null;
 	}
 	
-	
-	@SuppressWarnings("unchecked")
+	@Override
 	public T unmarshallAnonymousJson(String jsonString, TypeReference<T> typeRef) {
 		if(jsonString == null || jsonString.trim().isEmpty()) {
 			LOG.error("unmarshalFlightEvent: flight event is empty");
@@ -44,9 +43,6 @@ public class JsonTransformerImpl<T> implements JsonTransformer<T>{
 			mapper = new ObjectMapper();
 		}
 	    try {
-	    	List<T> list = new ArrayList<>();
-	    	list.add((T) "sss");
-//	    	TypeReference<T> typeRef = new TypeReference<T>() {};
 	    	return mapper.readValue(jsonString, typeRef);
 	    } catch (Exception e) {
 	    	LOG.error("Flight Event unmarshaller ERROR: ", e);
