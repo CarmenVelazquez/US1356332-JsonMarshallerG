@@ -1,0 +1,26 @@
+[
+	{
+		"ruleName":"MISS_CONNECT_FR121",
+		"crew":{
+			"fltKey":{
+				"flightNumber":"408",
+				"airlineCode":"AA",
+				"flightOriginationDate":"2020-06-27",
+				"departureCity":"MIA"
+			},
+			"sequenceKey":{
+				"sequenceNumber":"4629",
+				"sequenceOrignDate":"2020-06-27",
+				"crewBase":"MIA",
+				"crewType":"P",
+				"airlineCode":"AA"
+			},
+			"position":"CA",
+			"employeeNumber":"548108",
+			"operationType":"O",
+			"contractMonth":"JUN2020"
+		},
+		"eventType":"CYCLE",
+		"timeStamp":"2743130548097"
+	}
+]

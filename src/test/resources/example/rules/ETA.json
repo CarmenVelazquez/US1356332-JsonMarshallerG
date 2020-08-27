@@ -1,0 +1,26 @@
+{
+  "timeStamp": 743130548114,
+  "eventType": "ETA",
+  "crew": {
+    "fltKey": {
+      "flightNumber": "408",
+      "airlineCode": "AA",
+      "flightOriginationDate": "2020-06-27",
+      "departureCity": "MIA",
+      "duplicateDepartureCode": null
+    },
+    "sequenceKey": {
+      "sequenceNumber": "64629",
+      "sequenceOrignDate": "2020-06-27",
+      "crewBase": "MIA",
+      "crewType": "P",
+      "airlineCode": "AA",
+      "domesticOrInternational": null
+    },
+    "position": "CA",
+    "dutyPeriodNumber": null,
+    "employeeNumber": "548108",
+    "operationType": "O",
+    "contractMonth": "JUN2020"
+  }
+}
