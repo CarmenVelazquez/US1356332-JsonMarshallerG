@@ -30,7 +30,7 @@ public class Crew {
 	private String dutyPeriodNumber;
 	
 	@JsonProperty("employeeNumber")
-	private String employeeNumber;
+	private int employeeNumber;
 	
 	@JsonProperty("operationType")
 	private String operationType;
@@ -79,12 +79,12 @@ public class Crew {
 	}
 
 	@JsonProperty("employeeNumber")
-	public String getEmployeeNumber() {
+	public int getEmployeeNumber() {
 		return employeeNumber;
 	}
 
 	@JsonProperty("employeeNumber")
-	public void setEmployeeNumber(String employeeNumber) {
+	public void setEmployeeNumber(int employeeNumber) {
 		this.employeeNumber = employeeNumber;
 	}
 
