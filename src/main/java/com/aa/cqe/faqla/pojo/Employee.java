@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
 	@JsonProperty("employeeID")
-	private int employeeID;
+	private String employeeID;
 	
 	@JsonProperty("airlineCode")
 	private String airlineCode;
@@ -16,12 +16,12 @@ public class Employee {
 	List<Request> requests;
 
 	@JsonProperty("employeeID")
-	public int getEmployeeID() {
+	public String getEmployeeID() {
 		return employeeID;
 	}
 
 	@JsonProperty("employeeID")
-	public void setEmployeeID(int employeeID) {
+	public void setEmployeeID(String employeeID) {
 		this.employeeID = employeeID;
 	}
 
