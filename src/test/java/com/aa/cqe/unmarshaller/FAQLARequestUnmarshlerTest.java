@@ -49,7 +49,7 @@ public class FAQLARequestUnmarshlerTest {
 		faqlaRequest =  faQLAResponseUnmarshler.unmarshallEvent(exampleRequest, FAQLARequest.class);
 		assertAll(
 				() -> assertNotNull(faqlaRequest.getEmployees()),
-				() -> assertEquals(422953,faqlaRequest.getEmployees().get(0).getEmployeeID()),
+				() -> assertEquals("422953",faqlaRequest.getEmployees().get(0).getEmployeeID()),
 				() -> assertEquals("AA",faqlaRequest.getEmployees().get(0).getAirlineCode())
 		);
 	}
