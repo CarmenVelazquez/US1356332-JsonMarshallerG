@@ -1,0 +1,67 @@
+{
+    "optimizeRules": false,
+    "employeeResponses": [
+        {
+            "employeeID": 422953,
+            "airlineCode": "AA",
+            "qlaResponses": [
+                {
+                    "requestId": 1,
+                    "valid": false,
+                    "isLegal": false,
+                    "isContractual": false,
+                    "isQualified": true,
+                    "ruleResults": [
+                        {
+                            "rule": "TOUCHSEQ",
+                            "result": "IL",
+                            "messages": [
+                                "FA is already on the add SEQ 17102/2020-08-17/04"
+                            ]
+                        },
+                        {
+                            "rule": "SEQRSTC",
+                            "result": "IL",
+                            "messages": [
+                                "SEQ 17102/2020-08-17/04 is restricted as it is completed"
+                            ]
+                        },
+                        {
+                            "rule": "30X7BLOC",
+                            "result": "NC",
+                            "messages": [
+                                "30 HRS 0778/18AUG OUT OF CLT SEQ 17102/17AUG"
+                            ],
+                            "messageObjects": {
+                                "pickups": [
+                                    {
+                                        "airlineCode": "AA",
+                                        "contractMonth": "AUG2020",
+                                        "activityId": 17102,
+                                        "startDateTime": "2020-08-17T04:00:00",
+                                        "endDateTime": "2020-08-18T17:59:00",
+                                        "activityType": "SEQ",
+                                        "activityOriginationDate": "2020-08-17",
+                                        "positionCode": "04"
+                                    }
+                                ],
+                                "affectedBy": {
+                                    "airlineCode": "AA",
+                                    "contractMonth": "AUG2020",
+                                    "activityId": 17102,
+                                    "startDateTime": "2020-08-17T04:00:00",
+                                    "endDateTime": "2020-08-18T17:59:00",
+                                    "activityType": "SEQ",
+                                    "activityOriginationDate": "2020-08-17",
+                                    "positionCode": "04"
+                                },
+                                "affectedType": "LINEHOLDER",
+                                "affectedStartDateTime": "2020-08-17T04:00:00"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

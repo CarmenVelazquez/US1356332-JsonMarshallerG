@@ -1,0 +1,24 @@
+{
+    "employees": [
+        {
+            "airlineCode": "AA",
+            "employeeID": 422953,
+            "requests": [
+                {
+                    "pickupDutyList": [
+                        {
+                            "activityType": "SEQ",
+                            "airlineCode": "AA",
+                            "activityId": 17102,
+                            "activityOriginationDate": "2020-08-17",
+                            "contractMonth": "AUG2020",
+                            "positionCode": "04"
+                        }
+                    ],
+                    "requestId": 1,
+                    "ruleTypes": ["SEVENDAY"]
+                }
+            ]
+        }
+    ]
+}

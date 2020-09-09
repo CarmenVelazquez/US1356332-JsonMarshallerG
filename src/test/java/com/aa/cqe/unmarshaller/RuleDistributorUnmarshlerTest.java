@@ -52,7 +52,7 @@ public class RuleDistributorUnmarshlerTest {
 		assertAll(
 				() -> assertNotNull(flightCrewEvent.getCrew()),
 				() -> assertEquals("408",flightCrewEvent.getCrew().getFltKey().getFlightNumber()),
-				() -> assertEquals("64629",flightCrewEvent.getCrew().getSequenceKey().getSequenceNumber()),
+				() -> assertEquals(64629,flightCrewEvent.getCrew().getSequenceKey().getSequenceNumber()),
 				() -> assertEquals("ETA", flightCrewEvent.getEventType())
 		);
 	}
@@ -71,7 +71,7 @@ public class RuleDistributorUnmarshlerTest {
 				() -> assertNotNull(flightCrewRuleEvent.getCrew()),
 				() -> assertEquals("ON_DUTY_ALL_NIGHT_EVENT", flightCrewRuleEvent.getRuleName()),
 				() -> assertEquals("408",flightCrewRuleEvent.getCrew().getFltKey().getFlightNumber()),
-				() -> assertEquals("64629",flightCrewRuleEvent.getCrew().getSequenceKey().getSequenceNumber()),
+				() -> assertEquals(64629,flightCrewRuleEvent.getCrew().getSequenceKey().getSequenceNumber()),
 				() -> assertEquals("ETA", flightCrewRuleEvent.getEventType())
 		);
 	}

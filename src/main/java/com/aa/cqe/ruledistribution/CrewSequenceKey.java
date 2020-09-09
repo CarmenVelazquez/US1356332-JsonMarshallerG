@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class CrewSequenceKey {
 
 	@JsonProperty("sequenceNumber")
-	private String sequenceNumber;
+	private int sequenceNumber;
 	
 	@JsonProperty("sequenceOrignDate")
     private String sequenceOrignDate;
@@ -37,12 +37,12 @@ public class CrewSequenceKey {
     private String domesticOrInternational;
 
 	@JsonProperty("sequenceNumber")
-	public String getSequenceNumber() {
+	public int getSequenceNumber() {
 		return sequenceNumber;
 	}
 
 	@JsonProperty("sequenceNumber")
-	public void setSequenceNumber(String sequenceNumber) {
+	public void setSequenceNumber(int sequenceNumber) {
 		this.sequenceNumber = sequenceNumber;
 	}
 
