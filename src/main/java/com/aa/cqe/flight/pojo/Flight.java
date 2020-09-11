@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.Gson;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -620,11 +622,11 @@ public class Flight {
         this.lUSInd = lUSInd;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
-
+//    @Override
+//    public String toString() {
+//        return ToStringBuilder.reflectionToString(this);
+//    }
+    
     @Override
     public int hashCode() {
         return new HashCodeBuilder().append(event).append(version).append(trackingID).append(dataTime).append(key).append(fosPartition).append(cycled).append(leg).append(bondedFuelStatus).append(alternates).append(crewData).append(crewmember).append(delayCodes).append(connection).append(loadPlanWeights).append(loadPlanPaxCounts).append(cabinCapacity).append(fuelSlip).append(route).append(planRoute).append(fltPlanSignature).append(trackInformation).append(miscData).append(cargoItems).append(source).append(lUSInd).toHashCode();
@@ -683,5 +685,6 @@ public class Flight {
         }
 
     }
-
+   
+    
 }
