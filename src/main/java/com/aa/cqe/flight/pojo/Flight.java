@@ -622,10 +622,10 @@ public class Flight {
         this.lUSInd = lUSInd;
     }
 
-//    @Override
-//    public String toString() {
-//        return ToStringBuilder.reflectionToString(this);
-//    }
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
     
     @Override
     public int hashCode() {
