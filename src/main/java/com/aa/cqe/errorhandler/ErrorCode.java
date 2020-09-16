@@ -16,6 +16,7 @@ public enum ErrorCode {
 	CONMTH_API_ERROR("", "Contract Months API Throwing Error"),
 	PUBLISHING_ERROR("300","Event Hub Publishing Error");
 	
+	
 	@Setter @Getter
 	private String code, message;
 }
