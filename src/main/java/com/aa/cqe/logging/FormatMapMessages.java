@@ -84,7 +84,7 @@ public class FormatMapMessages {
 	    Map<String,List<String>> arraySingleLevelMap = new HashMap<>();
 	    Map<String, Object> mapObj = null;
 	    
-	      if (event.getLevel().toString().equalsIgnoreCase(Constants.ERROR)) {
+	      if (event.getLevel().toString().equalsIgnoreCase(Constants.ERROR) && (message.startsWith("{"))) {
 	    	   mapObj = new Gson().fromJson(
 					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
 					);
