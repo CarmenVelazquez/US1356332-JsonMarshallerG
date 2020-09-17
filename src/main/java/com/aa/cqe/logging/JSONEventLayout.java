@@ -42,6 +42,6 @@ public class JSONEventLayout extends AbstractStringLayout {
 			e.printStackTrace();
 		}
        
-        return  new GsonBuilder().create().toJson(fmtMessage);
+        return  new GsonBuilder().create().toJson(fmtMessage)+"\n";
 	}
 }

@@ -44,7 +44,7 @@ public class FormatMapMessages {
 	public Map<String,Object> getFormattedMessage(LogEvent event) throws ParseException, IOException {
 		
 		String regex =  "(\\r\\n|\\t|\\\\|\\u003d|\\u0027)";
-DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
 		
 	    ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of(Constants.UTC));
 	    propertyReader = PropertyReader.getInstance();
@@ -111,8 +111,10 @@ DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
 			 logElementsMap.putAll(mapSingleLevel);
 			 
 		  }
-		 logElementsMap.put("msg", mapObj);
-		
+	     if(mapObj != null) 
+		   logElementsMap.put("msg", mapObj);
+	     else 
+	    	 logElementsMap.put("msg", message);
 		return logElementsMap;
 	}
 	
