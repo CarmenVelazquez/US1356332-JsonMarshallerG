@@ -14,4 +14,5 @@ public class Constants {
 	public static final String ERROR = "error";
 	public static final String UTC="UTC";
 	public static final String TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+	public static final String CLASS = "ClassName";
 }
