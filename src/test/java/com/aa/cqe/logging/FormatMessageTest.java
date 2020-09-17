@@ -1,9 +1,13 @@
 package com.aa.cqe.logging;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Level;
@@ -17,6 +21,7 @@ import org.apache.logging.log4j.util.ReadOnlyStringMap;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.lang.Nullable;
 
 import com.google.gson.GsonBuilder;
 
@@ -30,19 +35,48 @@ public class FormatMessageTest {
 	}
 	@Test
 	public void getFormattedMessageTest() throws ParseException, IOException {
-		try {
-			exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		String[] params = new String[] {"event","trackingID"};
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
+		String[] params = new String[] {"filter:SRE,SECURITY", "event","trackingID"};
 		formatMessage = new FormatMapMessages();
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",1l,Level.INFO,exampleRequest,params));
-		String jsonStr = new GsonBuilder().create().toJson(fmtMessage);
-		System.out.println("Formatted Message : " + jsonStr);
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",1l,Level.INFO,exampleRequest, params));
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+		assertEquals(fmtMessage.get("event"), "OUT");
+		assertEquals(fmtMessage.get("trackingID"),"414d512046484d5154433120202020205eb5e31124104fd1");
+		assertNotNull(fmtMessage.get("msg"));
 	}
 	
-	private LogEvent getEvent(String threadName, long threadId, Level level, String message, String[] parameters) {
+	@Test
+	public void getFormattedMessageWithoutFilterTest() throws ParseException, IOException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
+		String[] params = new String[] {"fltNum","trackingID"};
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",1l,Level.INFO,exampleRequest, params));
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+		assertEquals(fmtMessage.get("fltNum"),"9231");
+		assertNotNull(fmtMessage.get("msg"));
+	}
+	
+	@Test
+	public void getFormattedErrorMessageTest() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.ERROR,exampleRequest,null));
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
+		assertNotNull(fmtMessage.get("stackTrace"));
+	}
+	
+	@Test
+	public void getFormattedErrorMessageWithFilterTest() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.ERROR,exampleRequest,new String[] {"filter:SRE"}));
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
+		assertNotNull(fmtMessage.get("stackTrace"));
+	}
+	
+	private LogEvent getEvent(String threadName, long threadId, Level level, String message, @Nullable String[] parameters) {
 		return new LogEvent() {
 			
 			@Override
@@ -128,6 +162,7 @@ public class FormatMessageTest {
 					@Override
 					public Object[] getParameters() {
 						// TODO Auto-generated method stub
+						
 						return parameters;
 					}
 					
@@ -193,5 +228,5 @@ public class FormatMessageTest {
 			}
 		};
 	}
-
+	
 }

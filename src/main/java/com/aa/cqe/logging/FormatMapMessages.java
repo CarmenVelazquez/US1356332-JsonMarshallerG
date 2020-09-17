@@ -15,11 +15,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.util.StringUtils;
 
 import com.aa.cqe.utility.Constants;
 import com.aa.cqe.utility.PropertyReader;
@@ -40,6 +43,8 @@ public class FormatMapMessages {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 	    ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of("UTC"));
 	    propertyReader = PropertyReader.getInstance();
+	    List<String> filters = new ArrayList<>();
+	    
 	    Object[] parameters = event.getMessage().getParameters();
 	    String formatedString = event.getMessage().getFormattedMessage();
 	    StringBuilder sb = new StringBuilder(formatedString);
@@ -48,7 +53,27 @@ public class FormatMapMessages {
 	    logElementsMap.put(Constants.CONFIG_APPLICATION_ID, propertyReader.applicationId);
 	    logElementsMap.put(Constants.CONFIG_APPLICATION_NAME, propertyReader.applicationName);
 	    logElementsMap.put(Constants.CONFIG_COMPONENT_ID, propertyReader.componentId);
-		
+	    
+	    List<Object> lstParam =  parameters == null? null : new LinkedList(Arrays.asList(parameters));
+	    
+	    //All for filter parameters
+	    filters.add("Analytics");
+	    if(lstParam != null) {
+		    String filterParam = lstParam.get(0).toString();
+		    String[] filterStr = filterParam.split(":");
+		    if(filterStr[0].equalsIgnoreCase("filter") && !StringUtils.isEmpty(filterStr[1])) {
+		    	lstParam.remove(0);
+		    	String[] filterName = filterStr[1].split(",");
+		    	for(int i=0;i < filterName.length; i++) {
+		    		filters.add(filterName[0]);
+		    	}
+		    }
+	    }
+	    logElementsMap.put(Constants.FILTERS, filters);
+	    logElementsMap.put(Constants.TIMEMILLISINUTC, fmt.format(LocalDateTime.now()).toString());
+	    logElementsMap.put(Constants.TIMESTAMP, zdt.toString());
+	    logElementsMap.put(Constants.EVENT_THREAD, event.getThreadName());
+	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
 	    //Add the application constants 
 	    Map<String,Object> mapSingleLevel = new HashMap<>();
 	    Map<String,List<String>> arraySingleLevelMap = new HashMap<>();
@@ -58,21 +83,30 @@ public class FormatMapMessages {
 	    	   mapObj = new Gson().fromJson(
 					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
 					);
-	    	   List<Object> lstParam =  new LinkedList(Arrays.asList(new String[] {"cause","stackTrace"}));
-	    	   hashMapper(mapObj,mapSingleLevel,lstParam);
+	    	   
+	    	   List<Object> errLstParam =  new LinkedList(Arrays.asList(new String[] {"cause","stackTrace"}));
+	    	   hashMapper(mapObj,mapSingleLevel,errLstParam);
+	    	   
+	    	 //convert decimal value into integer
+				 List<Map<String,Object>> stackTraces =  (List<Map<String, Object>>) mapSingleLevel.get("stackTrace");
+				 for(Map o: stackTraces) {
+					 o.put("lineNumber", Math.round((double) o.get("lineNumber")));
+				 }
+	    	   
 	    	   logElementsMap.putAll(mapSingleLevel);
 	      }
 		
 	      else if((message.startsWith("{") || message.startsWith("[")) && parameters != null) { 
-			 List<Object> lstParam =  new LinkedList(Arrays.asList(parameters));
+			
  			 mapObj = new Gson().fromJson(
 					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
 					);
 			 
 			 hashMapper(mapObj,mapSingleLevel,lstParam);
 			 logElementsMap.putAll(mapSingleLevel);
+			 
 		  }
-		 logElementsMap.put("msgs", message);
+		 logElementsMap.put("msg", message);
 		
 		return logElementsMap;
 	}
@@ -89,22 +123,24 @@ public class FormatMapMessages {
 	        	//if got the value of key remove from list populate the map
 	        	 if(params.contains(key)) {
 	        		 params.remove(key);
-	        		 singleLevelMap.put(key,(String) value);
+	        		 singleLevelMap.put(key, value.toString());
 	        	 }
 	             
 	        } else if (value instanceof Map) {
 	            Map<String, Object> subMap = (Map<String, Object>)value;
 	            hashMapper(subMap,singleLevelMap,params);
 	        }else if(value instanceof List) {
-	        	if(singleLevelMap.containsKey(key)) {
-	        		
-	        	}
+	        	if(params.contains(key)) {
+	        		params.remove(key);
+	        		 singleLevelMap.put(key,value);
+	        	}else {
 	        	 List<Object> subList = (List<Object>)value;
 	        	 for( int i=0; i<subList.size(); i++) {
 	        		 if(subList.get(i) instanceof Map) {
 	        			 hashMapper((Map<String,Object>)subList.get(i),singleLevelMap,params);
 	        		 }
 	        	 }
+	          }
 	        } else {
 	             singleLevelMap.put(key,String.valueOf(value));
 	        }

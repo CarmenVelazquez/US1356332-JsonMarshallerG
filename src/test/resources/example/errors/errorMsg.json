@@ -1,0 +1,29 @@
+{
+	"mesage": ", CCS API Throwing Error because Duplicate method for exception ",
+	"stackTrace": [
+		{
+			"declaringClass": "com.aa.qla.cqe.crew.CrewMemberServiceClient",
+			"methodName": "crewInfoResponse",
+			"fileName": "CrewMemberServiceClient.java",
+			"lineNumber": 146
+		},
+		{
+			"declaringClass": "com.aa.qla.cqe.crew.CrewMemberServiceClient",
+			"methodName": "getCrewInfo",
+			"fileName": "CrewMemberServiceClient.java",
+			"lineNumber": 106
+		},
+		{
+			"declaringClass": "com.aa.qla.cqe.service.OpsHubMessageService",
+			"methodName": "processAsyncMessage",
+			"fileName": "OpsHubMessageService.java",
+			"lineNumber": 41
+		},
+		{
+			"declaringClass": "com.aa.qla.cqe.consumer.OpsHubConsumerListener",
+			"methodName": "listen",
+			"fileName": "OpsHubConsumerListener.java",
+			"lineNumber": 60
+		}
+	]
+}
