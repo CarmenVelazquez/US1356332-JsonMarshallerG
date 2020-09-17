@@ -1,5 +1,6 @@
 {
 	"mesage": ", CCS API Throwing Error because Duplicate method for exception ",
+	"cause": "Java.lang.NullpointerException",
 	"stackTrace": [
 		{
 			"declaringClass": "com.aa.qla.cqe.crew.CrewMemberServiceClient",

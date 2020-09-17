@@ -8,6 +8,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -15,6 +16,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TimeZone;
+import java.util.regex.Matcher;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -36,12 +39,14 @@ public class FormatMapMessages {
 	private String _filters="Analytics";
 	private LogElementsBuilder logElementsBuilder;
 	private PropertyReader propertyReader = null;
+	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	
 	public Map<String,Object> getFormattedMessage(LogEvent event) throws ParseException, IOException {
 		
 		String regex =  "(\\r\\n|\\t|\\\\|\\u003d|\\u0027)";
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-	    ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of("UTC"));
+DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
+		
+	    ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of(Constants.UTC));
 	    propertyReader = PropertyReader.getInstance();
 	    List<String> filters = new ArrayList<>();
 	    
@@ -51,7 +56,7 @@ public class FormatMapMessages {
 	    LinkedHashMap<String,Object> logElementsMap = new LinkedHashMap<>();
 	    String message = sb.toString().replaceAll(regex, "");
 	    logElementsMap.put(Constants.CONFIG_APPLICATION_ID, propertyReader.applicationId);
-	    logElementsMap.put(Constants.CONFIG_APPLICATION_NAME, propertyReader.applicationName);
+	    logElementsMap.put(Constants.CONFIG_APPLICATION_NAME,propertyReader.applicationName);
 	    logElementsMap.put(Constants.CONFIG_COMPONENT_ID, propertyReader.componentId);
 	    
 	    List<Object> lstParam =  parameters == null? null : new LinkedList(Arrays.asList(parameters));
@@ -65,13 +70,13 @@ public class FormatMapMessages {
 		    	lstParam.remove(0);
 		    	String[] filterName = filterStr[1].split(",");
 		    	for(int i=0;i < filterName.length; i++) {
-		    		filters.add(filterName[0]);
+		    		filters.add(filterName[i]);
 		    	}
 		    }
 	    }
 	    logElementsMap.put(Constants.FILTERS, filters);
-	    logElementsMap.put(Constants.TIMEMILLISINUTC, fmt.format(LocalDateTime.now()).toString());
-	    logElementsMap.put(Constants.TIMESTAMP, zdt.toString());
+	    logElementsMap.put(Constants.TIMEMILLISINUTC, new Long(new Date().getTime()));
+	    logElementsMap.put(Constants.TIMESTAMP,LocalDateTime.now().toString());
 	    logElementsMap.put(Constants.EVENT_THREAD, event.getThreadName());
 	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
 	    //Add the application constants 
@@ -106,7 +111,7 @@ public class FormatMapMessages {
 			 logElementsMap.putAll(mapSingleLevel);
 			 
 		  }
-		 logElementsMap.put("msg", message);
+		 logElementsMap.put("msg", mapObj);
 		
 		return logElementsMap;
 	}
