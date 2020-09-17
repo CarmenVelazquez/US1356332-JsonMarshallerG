@@ -41,7 +41,6 @@ public class JSONEventLayout extends AbstractStringLayout {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-       
-        return  new GsonBuilder().create().toJson(fmtMessage)+"\n";
+        return  new GsonBuilder().create().toJson(formatedString)+"\n";
 	}
 }
