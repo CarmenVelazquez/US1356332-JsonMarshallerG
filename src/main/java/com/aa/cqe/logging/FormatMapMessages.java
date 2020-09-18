@@ -79,7 +79,7 @@ public class FormatMapMessages {
 	    logElementsMap.put(Constants.TIMESTAMP,LocalDateTime.now().toString());
 	    logElementsMap.put(Constants.EVENT_THREAD, event.getThreadName());
 	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
-	    logElementsMap.put(Constants.CLASS, event.getClass().getName().replace("$1", ""));
+	    logElementsMap.put(Constants.CLASS, event.getClass().getName().replaceAll("$1", ""));
 	    //Add the application constants 
 	    Map<String,Object> mapSingleLevel = new HashMap<>();
 	    Map<String,List<String>> arraySingleLevelMap = new HashMap<>();
@@ -101,15 +101,20 @@ public class FormatMapMessages {
 	    	   
 	    	   logElementsMap.putAll(mapSingleLevel);
 	      }
-		
-	      else if((message.startsWith("{") || message.startsWith("[")) && parameters != null) { 
+	      
+	      if(message.startsWith("[")) {
+	    	  //Delete [ ] from message
+	    	  message = message.substring(1, message.length()-2);
+	      }
+	      if((message.startsWith("{"))) { 
 			
  			 mapObj = new Gson().fromJson(
 					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
 					);
-			 
-			 hashMapper(mapObj,mapSingleLevel,lstParam);
-			 logElementsMap.putAll(mapSingleLevel);
+ 			 if(parameters != null) {
+			  hashMapper(mapObj,mapSingleLevel,lstParam);
+			  logElementsMap.putAll(mapSingleLevel);
+ 			 }
 			 
 		  }
 	     if(mapObj != null) 
