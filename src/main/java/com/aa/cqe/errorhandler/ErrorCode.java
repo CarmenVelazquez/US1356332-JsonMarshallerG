@@ -14,9 +14,8 @@ public enum ErrorCode {
 	TOKEN_API_ERROR("","Token Manager API Throwing Error"),
 	CCS_API_ERROR("","CCS API Throwing Error"),
 	CONMTH_API_ERROR("", "Contract Months API Throwing Error"),
-	PUBLISHING_ERROR("300","Event Hub Publishing Error");
-	
-	
+	PUBLISHING_ERROR("300","Event Hub Publishing Error"),
+	EMPTY_EVENT_ERROR("", "Empty Event Error");
 	@Setter @Getter
 	private String code, message;
 }
