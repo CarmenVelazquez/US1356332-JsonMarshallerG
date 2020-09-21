@@ -36,7 +36,6 @@ import com.google.gson.reflect.TypeToken;
 
 public class FormatMapMessages {
 	
-	private String _filters="Analytics";
 	private PropertyReader propertyReader = null;
 	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	
@@ -61,11 +60,11 @@ public class FormatMapMessages {
 	    List<Object> lstParam =  parameters == null? null : new LinkedList(Arrays.asList(parameters));
 	    
 	    //All for filter parameters
-	    filters.add("Analytics");
+	    filters.add(Constants.ANALYTICS);
 	    if(lstParam != null) {
 		    String filterParam = lstParam.get(0).toString();
 		    String[] filterStr = filterParam.split(":");
-		    if(filterStr[0].equalsIgnoreCase("filter") && !StringUtils.isEmpty(filterStr[1])) {
+		    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
 		    	lstParam.remove(0);
 		    	String[] filterName = filterStr[1].split(",");
 		    	for(int i=0;i < filterName.length; i++) {
@@ -80,7 +79,6 @@ public class FormatMapMessages {
 	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
 	    //Add the application constants 
 	    Map<String,Object> mapSingleLevel = new HashMap<>();
-	    Map<String,List<String>> arraySingleLevelMap = new HashMap<>();
 	    Map<String, Object> mapObj = null;
 	    
 	      if (event.getLevel().toString().equalsIgnoreCase(Constants.ERROR) && (message.startsWith("{"))) {
@@ -116,9 +114,9 @@ public class FormatMapMessages {
 			 
 		  }
 	     if(mapObj != null) 
-		   logElementsMap.put("msg", mapObj);
+		   logElementsMap.put(Constants.MESSAGE, mapObj);
 	     else 
-	    	 logElementsMap.put("msg", message);
+	    	 logElementsMap.put(Constants.MESSAGE, message);
 		return logElementsMap;
 	}
 	

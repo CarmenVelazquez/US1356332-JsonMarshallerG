@@ -28,7 +28,6 @@ import com.google.gson.GsonBuilder;
 public class FormatMessageTest {
 	private String exampleRequest;
 	private FormatMapMessages formatMessage;
-	private LogEvent event ;
 	@BeforeEach
 	public void setUp() {
 		
@@ -136,91 +135,76 @@ public class FormatMessageTest {
 			
 			@Override
 			public boolean isIncludeLocation() {
-				// TODO Auto-generated method stub
 				return false;
 			}
 			
 			@Override
 			public boolean isEndOfBatch() {
-				// TODO Auto-generated method stub
 				return false;
 			}
 			
 			@Override
 			public long getTimeMillis() {
-				// TODO Auto-generated method stub
 				return 0;
 			}
 			
 			@Override
 			public ThrowableProxy getThrownProxy() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public Throwable getThrown() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public int getThreadPriority() {
-				// TODO Auto-generated method stub
 				return 0;
 			}
 			
 			@Override
 			public String getThreadName() {
-				// TODO Auto-generated method stub
 				return threadName;
 			}
 			
 			@Override
 			public long getThreadId() {
-				// TODO Auto-generated method stub
 				return threadId;
 			}
 			
 			@Override
 			public StackTraceElement getSource() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public long getNanoTime() {
-				// TODO Auto-generated method stub
 				return 0;
 			}
 			
 			@Override
 			public Message getMessage() {
-				// TODO Auto-generated method stub
+				
 				return new Message() {
 					
 					@Override
 					public Throwable getThrowable() {
-						// TODO Auto-generated method stub
 						return null;
 					}
 					
 					@Override
 					public Object[] getParameters() {
-						// TODO Auto-generated method stub
-						
 						return parameters;
 					}
 					
 					@Override
 					public String getFormattedMessage() {
-						// TODO Auto-generated method stub
 						return message;
 					}
 					
 					@Override
 					public String getFormat() {
-						// TODO Auto-generated method stub
 						return null;
 					}
 				};
@@ -228,19 +212,16 @@ public class FormatMessageTest {
 			
 			@Override
 			public Marker getMarker() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public String getLoggerName() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public String getLoggerFqcn() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
@@ -251,25 +232,21 @@ public class FormatMessageTest {
 			
 			@Override
 			public Instant getInstant() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public ContextStack getContextStack() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public Map<String, String> getContextMap() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public ReadOnlyStringMap getContextData() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 		};

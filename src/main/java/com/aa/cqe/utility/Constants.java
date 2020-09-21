@@ -2,7 +2,7 @@ package com.aa.cqe.utility;
 
 public class Constants {
 	public static final String CONFIG_APPLICATION_ID = "_applicationId";
-	public static final String CONFIG_APPLICATION_NAME = "_application/serviceName";
+	public static final String CONFIG_APPLICATION_NAME = "_applicationOrserviceName";
 	public static final String CONFIG_COMPONENT_ID = "_componentId";
 	public static final String FILTERS="_filters";
 	public static final String TIMEMILLISINUTC="_timesMillisInUTC";
@@ -14,4 +14,7 @@ public class Constants {
 	public static final String ERROR = "error";
 	public static final String UTC="UTC";
 	public static final String TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+	public static final String ANALYTICS= "Analytics";
+	public static final String FILTER = "filter";
+	public static final String MESSAGE = "msg";
 }
