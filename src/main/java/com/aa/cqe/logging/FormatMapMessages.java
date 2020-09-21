@@ -37,7 +37,6 @@ import com.google.gson.reflect.TypeToken;
 public class FormatMapMessages {
 	
 	private String _filters="Analytics";
-	private LogElementsBuilder logElementsBuilder;
 	private PropertyReader propertyReader = null;
 	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	
