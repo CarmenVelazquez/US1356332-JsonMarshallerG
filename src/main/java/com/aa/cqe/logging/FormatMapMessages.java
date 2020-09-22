@@ -61,7 +61,7 @@ public class FormatMapMessages {
 	    
 	    //All for filter parameters
 	    filters.add(Constants.ANALYTICS);
-	    if(lstParam != null) {
+	    if(lstParam != null && lstParam.get(0)!= null) {
 		    String filterParam = lstParam.get(0).toString();
 		    String[] filterStr = filterParam.split(":");
 		    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
