@@ -21,8 +21,8 @@ public class Event{
 	@JsonProperty("timeStamp")
 	private String timeStamp;
 	
-	@JsonProperty("trackingId")
-	private String trackingId;
+	@JsonProperty("trackingID")
+	private String trackingID;
 	
 	@JsonProperty("eventType")
 	public String getEventType() {
@@ -44,14 +44,14 @@ public class Event{
 		this.timeStamp = timeStamp;
 	}
 
-	@JsonProperty("trackingId")
-	public String getTrackingId() {
-		return trackingId;
+	@JsonProperty("trackingID")
+	public String getTrackingID() {
+		return trackingID;
 	}
 
-	@JsonProperty("trackingId")
-	public void setTrackingId(String trackingId) {
-		this.trackingId = trackingId;
+	@JsonProperty("trackingID")
+	public void setTrackingID(String trackingID) {
+		this.trackingID = trackingID;
 	}
 	
 	
