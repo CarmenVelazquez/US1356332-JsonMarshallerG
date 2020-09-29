@@ -17,4 +17,5 @@ public class Constants {
 	public static final String ANALYTICS= "Analytics";
 	public static final String FILTER = "filter";
 	public static final String MESSAGE = "msg";
+	public static final String CLASSNAME = "className";
 }

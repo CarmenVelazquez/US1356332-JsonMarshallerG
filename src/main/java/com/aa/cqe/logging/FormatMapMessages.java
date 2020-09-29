@@ -77,6 +77,7 @@ public class FormatMapMessages {
 	    logElementsMap.put(Constants.TIMESTAMP,LocalDateTime.now().toString());
 	    logElementsMap.put(Constants.EVENT_THREAD, event.getThreadName());
 	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
+	    logElementsMap.put(Constants.CLASSNAME, event.getLoggerName());
 	    //Add the application constants 
 	    Map<String,Object> mapSingleLevel = new HashMap<>();
 	    Map<String, Object> mapObj = null;
