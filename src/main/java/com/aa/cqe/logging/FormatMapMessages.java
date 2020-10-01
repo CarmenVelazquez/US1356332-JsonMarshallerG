@@ -129,7 +129,9 @@ public class FormatMapMessages {
 	    	}
 	        String key = entry.getKey();
 	        Object value = entry.getValue();
-	        if (value instanceof String) {
+	        if (value instanceof String || value instanceof Boolean 
+	        		|| value instanceof Integer || value instanceof Long 
+	        		|| value instanceof Double || value instanceof Float) {
 	        	//if got the value of key remove from list populate the map
 	        	 if(params.contains(key)) {
 	        		 params.remove(key);
@@ -151,8 +153,6 @@ public class FormatMapMessages {
 	        		 }
 	        	 }
 	          }
-	        } else {
-	             singleLevelMap.put(key,String.valueOf(value));
 	        }
 
 	    }

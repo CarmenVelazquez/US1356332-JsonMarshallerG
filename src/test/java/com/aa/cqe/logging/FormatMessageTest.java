@@ -80,7 +80,7 @@ public class FormatMessageTest {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simmple Message" + " Just to Test";
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
@@ -89,7 +89,7 @@ public class FormatMessageTest {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simple Message = " + "12";
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
@@ -107,7 +107,7 @@ public class FormatMessageTest {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.INFO,exampleRequest,null));
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,exampleRequest,null));
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
@@ -117,7 +117,19 @@ public class FormatMessageTest {
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
 		formatMessage = new FormatMapMessages();
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testErrorThread",2l,Level.INFO,exampleRequest,null));
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,exampleRequest,null));
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	@Test
+	public void getFormattedJsonWithOtherTypes() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/rules/Result.json"), StandardCharsets.UTF_8);
+		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
+		formatMessage = new FormatMapMessages();
+		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,exampleRequest,new String[] {"trackingID"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "7431305481141112229164");
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
