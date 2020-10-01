@@ -129,9 +129,7 @@ public class FormatMapMessages {
 	    	}
 	        String key = entry.getKey();
 	        Object value = entry.getValue();
-	        if (value instanceof String || value instanceof Boolean 
-	        		|| value instanceof Integer || value instanceof Long 
-	        		|| value instanceof Double || value instanceof Float) {
+	        if (value instanceof String || value instanceof Boolean || value instanceof Double) {
 	        	//if got the value of key remove from list populate the map
 	        	 if(params.contains(key)) {
 	        		 params.remove(key);

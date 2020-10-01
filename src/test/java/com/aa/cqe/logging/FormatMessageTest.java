@@ -127,7 +127,7 @@ public class FormatMessageTest {
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
 		formatMessage = new FormatMapMessages();
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
-		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,exampleRequest,new String[] {"trackingID"}));
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,exampleRequest,new String[] {"trackingID","sequenceNumber"}));
 		assertNotNull(fmtMessage.get("trackingID"));
 		assertEquals(fmtMessage.get("trackingID"), "7431305481141112229164");
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
