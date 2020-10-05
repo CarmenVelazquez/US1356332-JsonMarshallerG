@@ -16,7 +16,10 @@ public enum ErrorCode {
 	CCS_API_ERROR("","CCS API Throwing Error"),
 	CONMTH_API_ERROR("", "Contract Months API Throwing Error"),
 	PUBLISHING_ERROR("300","Event Hub Publishing Error"),
-	EMPTY_EVENT_ERROR("", "Empty Event Error");
+	EMPTY_EVENT_ERROR("404", "Empty Event Error"),
+	FA_QLA_API_ERROR("","FA QLA API Throwing Error"),
+	INVALID_EMPLOYEE_NUMBER_ERROR("1001","FA QLA API Throwing Error");
+
 	@Setter @Getter
 	private String code, message;
 }
