@@ -12,6 +12,17 @@ public class EmployeeResponses {
 	@JsonProperty("employeeID")
 	private String employeeID;
 	
+	@JsonProperty("position")
+	private String position;
+	
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
 	@JsonProperty("threshold")
 	private Long threshold;
 	
