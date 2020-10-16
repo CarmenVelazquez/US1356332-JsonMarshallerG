@@ -1,37 +1,58 @@
 {
-	"trackingID": "7431305481141112229164",
-	"timeStamp": "2020-09-30T16:50:27",
-	"optimizeRules": false,
-	"employeeResponses": {
-		"employeeID": "422953",
-		"threshold": null,
-		"airlineCode": "AA",
-		"fltKey": {
-			"flightNumber": "408",
+	"_applicationId": "CQEProducerTest",
+	"_applicationOrserviceName": "CQEProducerTest",
+	"_componentId": "Consumer",
+	"_filters": [
+		"Analytics"
+	],
+	"_timesMillisInUTC": 1601585848533,
+	"_timeStamp": "2020-10-01T20:57:28.533",
+	"threadName": "org.springframework.kafka.KafkaListenerEndpointContainer#0-12-C-1",
+	"level": "INFO",
+	"className": "com.aa.qla.cqe.consumer.listener.FlightTimesMessageListener",
+	"valid": "false",
+	"sequenceNumber": "17102.0",
+	"isLegal": "false",
+	"isContractual": "false",
+	"optimizeRules": "false",
+	"isQualified": "true",
+	"threshold": "0.0",
+	"trackingID": "843130548114136418758756864566",
+	"msg": {
+		"timeStamp": "2020-10-01T20:57:26",
+		"optimizeRules": false,
+		"employeeResponses": {
+			"employeeID": "422953",
+			"threshold": 0.0,
 			"airlineCode": "AA",
-			"flightOriginationDate": "2020-08-17",
-			"departureCity": "MIA"
-		},
-		"sequenceKey": {
-			"sequenceNumber": 7431305481141112229,
-			"sequenceOrignDate": "2020-08-17",
-			"crewBase": "MIA",
-			"crewType": "F",
-			"airlineCode": "AA"
-		},
-		"qlaResponses": {
-			"requestId": "1",
-			"valid": false,
-			"isLegal": false,
-			"isContractual": false,
-			"isQualified": true,
-			"ruleResults": {
-				"rule": "TOUCHSEQ",
-				"result": "IL",
-				"messages": [
-					"FA is already on the add SEQ 17102/2020-08-17/04"
-				]
+			"fltKey": {
+				"flightNumber": "2326",
+				"airlineCode": "AA",
+				"flightOriginationDate": "2020-08-27",
+				"departureCity": "DSM"
+			},
+			"sequenceKey": {
+				"sequenceNumber": 17102.0,
+				"sequenceOrignDate": "2020-08-17",
+				"crewBase": "DFW",
+				"crewType": "F",
+				"airlineCode": "AA"
+			},
+			"qlaResponses": {
+				"requestId": "1",
+				"valid": false,
+				"isLegal": false,
+				"isContractual": false,
+				"isQualified": true,
+				"ruleResults": {
+					"rule": "30X7BLOC",
+					"result": "NC",
+					"messages": [
+						"30 HRS 0778/18AUG OUT OF CLT SEQ 17102/17AUG"
+					]
+				}
 			}
-		}
+		},
+		"trackingID": "843130548114136418758756864566"
 	}
 }
