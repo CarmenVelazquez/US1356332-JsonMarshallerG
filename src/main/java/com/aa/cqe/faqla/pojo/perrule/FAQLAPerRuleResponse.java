@@ -1,6 +1,4 @@
-package com.aa.cqe.faqla.pojo;
-
-import java.util.List;
+package com.aa.cqe.faqla.pojo.perrule;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,13 +7,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-"timeStamp",
 "trackingID",
+"timeStamp",
 "optimizeRules",
-"employeeResponses",
+"employeeResponses"
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FAQLAResponse {
+public class FAQLAPerRuleResponse {
+
+	@JsonProperty("trackingID")
+	private String trackingID;
+	
+
+	public String getTrackingID() {
+		return trackingID;
+	}
+	public void setTrackingID(String trackingID) {
+		this.trackingID = trackingID;
+	}
+
 	@JsonProperty("timeStamp")
 	private String timeStamp;
 	@JsonProperty("timeStamp")
@@ -27,24 +37,9 @@ public class FAQLAResponse {
 		this.timeStamp = timeStamp;
 	}
 
-
-	@JsonProperty("trackingID")
-	private String trackingID;
-	
-	public String isTrackingID() {
-		return trackingID;
-	}
-	public void setTrackingID(String trackingID) {
-		this.trackingID = trackingID;
-	}
-
-
 	@JsonProperty("optimizeRules")
 	private boolean optimizeRules;
 	
-	@JsonProperty("employeeResponses")
-	private List<EmployeeResponse> employeeResponses;
-
 	@JsonProperty("optimizeRules")
 	public boolean getOptimizeRules() {
 		return optimizeRules;
@@ -54,17 +49,20 @@ public class FAQLAResponse {
 	public void setOptimizeRules(boolean optimizeRules) {
 		this.optimizeRules = optimizeRules;
 	}
-
+	
+	
 	@JsonProperty("employeeResponses")
-	public List<EmployeeResponse> getEmployeeResponses() {
+	private EmployeeResponses employeeResponses;
+	
+	@JsonProperty("employeeResponses")
+	public EmployeeResponses getEmployeeResponses() {
 		return employeeResponses;
 	}
 
 	@JsonProperty("employeeResponses")
-	public void setEmployeeResponses(List<EmployeeResponse> employeeResponses) {
+	public void setEmployeeResponses(EmployeeResponses employeeResponses) {
 		this.employeeResponses = employeeResponses;
 	}
-	
-	
+
 
 }
