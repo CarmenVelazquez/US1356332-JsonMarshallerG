@@ -18,7 +18,6 @@ public class FAQLAPerRuleResponse {
 	@JsonProperty("trackingID")
 	private String trackingID;
 	
-
 	public String getTrackingID() {
 		return trackingID;
 	}
@@ -50,7 +49,6 @@ public class FAQLAPerRuleResponse {
 		this.optimizeRules = optimizeRules;
 	}
 	
-	
 	@JsonProperty("employeeResponses")
 	private EmployeeResponses employeeResponses;
 	
@@ -63,6 +61,5 @@ public class FAQLAPerRuleResponse {
 	public void setEmployeeResponses(EmployeeResponses employeeResponses) {
 		this.employeeResponses = employeeResponses;
 	}
-
 
 }
