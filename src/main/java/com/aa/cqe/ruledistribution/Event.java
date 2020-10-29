@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
 "eventType",
 "timeStamp",
+"trackingID",
+"cqeTrackingID"
 })
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,6 +25,9 @@ public class Event{
 	
 	@JsonProperty("trackingID")
 	private String trackingID;
+	
+	@JsonProperty("cqeTrackingID")
+	private String cqeTrackingID;
 	
 	@JsonProperty("eventType")
 	public String getEventType() {
@@ -54,7 +59,14 @@ public class Event{
 		this.trackingID = trackingID;
 	}
 	
+	@JsonProperty("cqeTrackingID")
+	public String getCqeTrackingID() {
+		return cqeTrackingID;
+	}
 	
-	
+	@JsonProperty("cqeTrackingID")
+	public void setCqeTrackingID(String cqeTrackingID) {
+		this.cqeTrackingID = cqeTrackingID;
+	}
 	
 }
