@@ -18,4 +18,9 @@ public class Constants {
 	public static final String FILTER = "filter";
 	public static final String MESSAGE = "msg";
 	public static final String CLASSNAME = "className";
+	public static final String CONFIG_TENANT_ID = "tenantId";
+	public static final String CONFIG_APP_ID = "appId";
+	public static final String CONFIG_APP_SECRET = "appSecret";
+	public static final String CONFIG_ENV = "env";
+	public static final String CONFIG_MSI_ClientId = "msiClientId";
 }

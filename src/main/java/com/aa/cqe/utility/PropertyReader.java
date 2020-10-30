@@ -17,6 +17,11 @@ public class PropertyReader {
 	public static String applicationId;
 	public static String applicationName;
 	public static String componentId;
+	public static String tenantId;
+	public static String appId;
+	public static String appSecret;
+	public static String env;
+	public static String msiClientId;
 	private static PropertyReader propertyReader = null;
 	
 	private PropertyReader() {
@@ -27,7 +32,6 @@ public class PropertyReader {
 		  synchronized (PropertyReader.class) {
 			  propertyReader = new PropertyReader();
 			  fileReader();
-				
 		  }
 		}
 		return propertyReader;
@@ -38,7 +42,13 @@ public class PropertyReader {
 		prop.load(PropertyReader.class.getClassLoader().getResourceAsStream(propertyName));
 		applicationId = prop.getProperty(Constants.CONFIG_APPLICATION_ID);
 		applicationName = prop.getProperty(Constants.CONFIG_APPLICATION_NAME);
+		tenantId = prop.getProperty(Constants.CONFIG_TENANT_ID);
 		componentId = prop.getProperty(Constants.CONFIG_COMPONENT_ID);
+		tenantId = prop.getProperty(Constants.CONFIG_TENANT_ID);
+		appId = prop.getProperty(Constants.CONFIG_APP_ID);
+		appSecret = prop.getProperty(Constants.CONFIG_APP_SECRET);
+		env = prop.getProperty(Constants.CONFIG_ENV);
+		msiClientId = prop.getProperty(Constants.CONFIG_MSI_ClientId);
 	}
 
 }

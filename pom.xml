@@ -97,7 +97,45 @@
       		<groupId>com.googlecode.json-simple</groupId>  
       		<artifactId>json-simple</artifactId>  
       		<version>1.1</version> 
-    	</dependency> 
+    	</dependency>
+    	<dependency> 
+	      <groupId>org.springframework.kafka</groupId>  
+	      <artifactId>spring-kafka</artifactId>  
+	      <exclusions> 
+	        <exclusion> 
+	          <groupId>org.slf4j</groupId>  
+	          <artifactId>slf4j-log4j12</artifactId> 
+	        </exclusion>  
+	        <exclusion> 
+	          <groupId>log4j</groupId>  
+	          <artifactId>log4j</artifactId> 
+	        </exclusion> 
+	      </exclusions> 
+	    </dependency>  
+    	<dependency> 
+	      <groupId>com.microsoft.azure</groupId>  
+	      <artifactId>msal4j</artifactId>  
+	      <version>1.0.0</version>  
+	      <exclusions> 
+	        <exclusion> 
+	          <groupId>log4j</groupId>  
+	          <artifactId>*</artifactId> 
+	        </exclusion>  
+	        <exclusion> 
+	          <groupId>org.slf4j</groupId>  
+	          <artifactId>*</artifactId> 
+	        </exclusion>  
+	        <exclusion> 
+	          <groupId>org.apache.logging.log4j</groupId>  
+	          <artifactId>*</artifactId> 
+	        </exclusion> 
+	      </exclusions> 
+	    </dependency> 
+	    <dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-client-authentication</artifactId>
+			<version>1.6.13</version>
+		</dependency>
 	</dependencies>
 
 	<build>
