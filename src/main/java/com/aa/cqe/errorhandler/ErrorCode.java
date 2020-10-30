@@ -19,6 +19,7 @@ public enum ErrorCode {
 	EMPTY_EVENT_ERROR("404", "Empty Event Error"),
 	FA_QLA_API_ERROR("","FA QLA API Throwing Error"),
 	INVALID_EMPLOYEE_NUMBER_ERROR("1001","FA QLA API Throwing Error");
+
 	@Setter @Getter
 	private String code, message;
 }
