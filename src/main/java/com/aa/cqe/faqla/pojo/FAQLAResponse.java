@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
 "timeStamp",
 "trackingID",
+"cqeTrackingID",
 "optimizeRules",
 "isRawResponse",
 "employeeResponses",
@@ -28,6 +29,22 @@ public class FAQLAResponse {
 		this.timeStamp = timeStamp;
 	}
 
+	@JsonProperty("cqeTrackingID")
+	private String cqeTrackingID;
+	
+	public String getCqeTrackingID() {
+		return cqeTrackingID;
+	}
+	public void setCqeTrackingID(String cqeTrackingID) {
+		this.cqeTrackingID = cqeTrackingID;
+	}
+	public String getTrackingID() {
+		return trackingID;
+	}
+	public void setTrackingID(String trackingID) {
+		this.trackingID = trackingID;
+	}
+
 	@JsonProperty("isRawResponse")
 	private boolean isRawResponse;
 
@@ -41,13 +58,6 @@ public class FAQLAResponse {
 	@JsonProperty("trackingID")
 	private String trackingID;
 	
-	public String isTrackingID() {
-		return trackingID;
-	}
-	public void setTrackingID(String trackingID) {
-		this.trackingID = trackingID;
-	}
-
 
 	@JsonProperty("optimizeRules")
 	private boolean optimizeRules;
