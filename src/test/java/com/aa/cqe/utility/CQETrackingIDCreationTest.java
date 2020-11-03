@@ -38,9 +38,9 @@ public class CQETrackingIDCreationTest {
 		String uniqueID2 = CQETrackingIDCreation.gernerateTrackingID(new Date(), 11, 0l);
 		String uniqueIDwithEmp1 = CQETrackingIDCreation.gernerateTrackingIDWithEmployee(uniqueID1, "23");
 		String uniqueIDwithEmp2 = CQETrackingIDCreation.gernerateTrackingIDWithEmployee(uniqueID2, "23");
-		String uniqueIDwithRule1 = CQETrackingIDCreation.gernerateTrackingIDWithRule(uniqueIDwithEmp1, 3);
-		String uniqueIDwithRule2 = CQETrackingIDCreation.gernerateTrackingIDWithRule(uniqueIDwithEmp2, 13);
-		assertEquals(29,uniqueIDwithRule1.length());
+		String uniqueIDwithRule1 = CQETrackingIDCreation.generateTrackingIDWithRule(uniqueIDwithEmp1, 3);
+		String uniqueIDwithRule2 = CQETrackingIDCreation.generateTrackingIDWithRule(uniqueIDwithEmp2, 13);
+		assertEquals(29,uniqueIDwithRule1.length());	
 		assertEquals(29,uniqueIDwithRule1.length());
 		assertNotEquals(uniqueIDwithRule1, uniqueIDwithRule2);
 		

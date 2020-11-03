@@ -27,7 +27,7 @@ public class CQETrackingIDCreation {
 		return uniqueIDBuilder.toString();
 	}
 	//UniqueID with empNumber
-	public static String gernerateTrackingIDWithRule(String uniqueID, Integer ruleId) {
+	public static String generateTrackingIDWithRule(String uniqueID, Integer ruleId) {
 		StringBuilder uniqueIDBuilder = new StringBuilder(uniqueID);
 		String ruleID = StringUtils.leftPad(ruleId.toString(), 2, "0");
 		uniqueIDBuilder.append(ruleID);
