@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "trackingID",
 "timeStamp",
 "optimizeRules",
+"messageID",
+"cqeTrackingID",
 "employeeResponses"
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,6 +25,25 @@ public class FAQLAPerRuleResponse {
 	}
 	public void setTrackingID(String trackingID) {
 		this.trackingID = trackingID;
+	}
+
+	@JsonProperty("messageID")
+	private String messageID;
+	
+	@JsonProperty("cqeTrackingID")
+	private String cqeTrackingID;
+	
+	public String getMessageID() {
+		return messageID;
+	}
+	public void setMessageID(String messageID) {
+		this.messageID = messageID;
+	}
+	public String getCqeTrackingID() {
+		return cqeTrackingID;
+	}
+	public void setCqeTrackingID(String cqeTrackingID) {
+		this.cqeTrackingID = cqeTrackingID;
 	}
 
 	@JsonProperty("timeStamp")

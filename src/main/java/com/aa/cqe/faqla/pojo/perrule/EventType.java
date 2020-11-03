@@ -21,6 +21,16 @@ public class EventType {
 
 	@JsonProperty("position")
 	private String position;
+	
+	@JsonProperty("cqeTrackingID")
+	private String cqeTrackingID;
+	
+	public String getCqeTrackingID() {
+		return cqeTrackingID;
+	}
+	public void setCqeTrackingID(String cqeTrackingID) {
+		this.cqeTrackingID = cqeTrackingID;
+	}
 
 	@JsonProperty("fltKey")
 	private FlightKey fltKey;
