@@ -62,6 +62,24 @@ public class FormatMapMessages {
 	    //All for filter parameters
 	    filters.add(Constants.ANALYTICS);
 	    if(lstParam != null && lstParam.get(0)!= null) {
+	    	
+	    	
+	    	//if first parameter is a class
+		    if(lstParam.get(0) instanceof Object && !(lstParam.get(0) instanceof String)) {
+		    	logElementsMap.put(Constants.TITLE, message);
+		    	message = new Gson().toJson(lstParam.get(0)).toString();
+		    	lstParam.remove(0);
+		    }
+	    	
+	    	//if first parameter is json String
+		    if(lstParam.get(0).toString().startsWith("{")) {
+		    	logElementsMap.put(Constants.TITLE, message);
+		    	message = lstParam.get(0).toString();
+		    	lstParam.remove(0);
+		    	
+		    }
+		 
+	    	
 		    String filterParam = lstParam.get(0).toString();
 		    String[] filterStr = filterParam.split(":");
 		    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
@@ -71,6 +89,7 @@ public class FormatMapMessages {
 		    		filters.add(filterName[i]);
 		    	}
 		    }
+		   
 	    }
 	    logElementsMap.put(Constants.FILTERS, filters);
 	    logElementsMap.put(Constants.TIMEMILLISINUTC, new Long(new Date().getTime()));
@@ -102,6 +121,14 @@ public class FormatMapMessages {
 	      if(message.startsWith("[")) {
 	    	  //Delete [ ] from message
 	    	  message = message.substring(1, message.length()-2);
+	      }
+	      // message with label followed by json string 
+	      if(!message.startsWith("{") && message.contains("{") && message.endsWith("}")) {
+	    	  int firstCounter =  message.indexOf('{');
+	    	  int lastCounter = message.lastIndexOf('}');
+	    	  String label = message.substring(0, firstCounter);
+	    	  logElementsMap.put(Constants.TITLE, label);
+	    	  message = message.substring(firstCounter,lastCounter+1);
 	      }
 	      if((message.startsWith("{"))) { 
 			
