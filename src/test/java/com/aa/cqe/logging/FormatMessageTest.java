@@ -195,6 +195,18 @@ public class FormatMessageTest {
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
+	@Test
+	public void getStringWithParamKeyValue() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/css/flightDetails2.json"), StandardCharsets.UTF_8);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :", new Object[] {exampleRequest,"cqeTrackingID:123422323210002390000","trackingID:414d512046484d5154433120202020205eb5e311240e5fdf"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "414d512046484d5154433120202020205eb5e311240e5fdf");
+		assertEquals(fmtMessage.get("cqeTrackingID"), "123422323210002390000");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
 	private LogEvent getEvent(String threadName, long threadId, Level level, String message, @Nullable Object[] parameters) {
 		return new LogEvent() {
 			

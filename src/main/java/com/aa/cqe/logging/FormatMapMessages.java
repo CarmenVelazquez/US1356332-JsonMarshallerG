@@ -41,6 +41,9 @@ public class FormatMapMessages {
 	
 	public Map<String,Object> getFormattedMessage(LogEvent event) throws ParseException, IOException {
 		
+		Map<String,Object> mapSingleLevel = new HashMap<>();
+	    Map<String, Object> mapObj = null;
+		
 		String regex =  "(\\r\\n|\\t|\\\\|\\u003d|\\u0027)";
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
 		
@@ -61,8 +64,7 @@ public class FormatMapMessages {
 	    
 	    //All for filter parameters
 	    filters.add(Constants.ANALYTICS);
-	    if(lstParam != null && lstParam.get(0)!= null) {
-	    	
+	    if(lstParam != null && lstParam.size()!=0) {
 	    	
 	    	//if first parameter is a class
 		    if(lstParam.get(0) instanceof Object && !(lstParam.get(0) instanceof String)) {
@@ -72,34 +74,49 @@ public class FormatMapMessages {
 		    }
 	    	
 	    	//if first parameter is json String
-		    if(lstParam.get(0).toString().startsWith("{")) {
+		    else if(lstParam.get(0).toString().startsWith("{")) {
 		    	logElementsMap.put(Constants.TITLE, message);
 		    	message = lstParam.get(0).toString();
 		    	lstParam.remove(0);
 		    	
-		    }
-		 
-	    	
-		    String filterParam = lstParam.get(0).toString();
-		    String[] filterStr = filterParam.split(":");
-		    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
+		    }else if(lstParam.get(0).toString().startsWith("[")) {
+		    	logElementsMap.put(Constants.TITLE, message);
+		    	//Delete [ ] from message
+		    	message = lstParam.get(0).toString();
 		    	lstParam.remove(0);
-		    	String[] filterName = filterStr[1].split(",");
-		    	for(int i=0;i < filterName.length; i++) {
-		    		filters.add(filterName[i]);
-		    	}
-		    }
-		   
+		   }		 
+	    	if(lstParam.size()>0) {
+	    		String filterParam = lstParam.get(0).toString();
+			    String[] filterStr = filterParam.split(":");
+			    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
+			    	lstParam.remove(0);
+			    	String[] filterName = filterStr[1].split(",");
+			    	for(int i=0;i < filterName.length; i++) {
+			    		filters.add(filterName[i]);
+			    	}
+			     }
+	    	
+			    //String with key value for logs
+			    List<Object> mapList = lstParam.stream().filter(x->x.toString().contains(":")).collect(Collectors.toList());
+			    for(Object pair : mapList) {
+			    	String strPair = pair.toString();
+			    	int index = strPair.indexOf(':');
+			    	String key = strPair.substring(0,index);
+			    	String value = strPair.substring(index+1, strPair.length());
+			    	mapSingleLevel.put(key, value);
+			    	lstParam.remove(pair);
+			    }
+	    	}
 	    }
+	    //Add the application constants 
 	    logElementsMap.put(Constants.FILTERS, filters);
 	    logElementsMap.put(Constants.TIMEMILLISINUTC, new Long(new Date().getTime()));
 	    logElementsMap.put(Constants.TIMESTAMP,LocalDateTime.now().toString());
 	    logElementsMap.put(Constants.EVENT_THREAD, event.getThreadName());
 	    logElementsMap.put(Constants.EVENT_LEVEL, event.getLevel().name());
 	    logElementsMap.put(Constants.CLASSNAME, event.getLoggerName());
-	    //Add the application constants 
-	    Map<String,Object> mapSingleLevel = new HashMap<>();
-	    Map<String, Object> mapObj = null;
+	   
+	    
 	    
 	      if (event.getLevel().toString().equalsIgnoreCase(Constants.ERROR) && (message.startsWith("{"))) {
 	    	   mapObj = new Gson().fromJson(
@@ -114,39 +131,44 @@ public class FormatMapMessages {
 				 for(Map o: stackTraces) {
 					 o.put("lineNumber", Math.round((double) o.get("lineNumber")));
 				 }
-	    	   
+			   logElementsMap.put(Constants.MESSAGE, mapObj);
 	    	   logElementsMap.putAll(mapSingleLevel);
-	      }
+	      }else {
 	      
-	      if(message.startsWith("[")) {
-	    	  //Delete [ ] from message
-	    	  message = message.substring(1, message.length()-2);
-	      }
-	      // message with label followed by json string 
-	      if(!message.startsWith("{") && message.contains("{") && message.endsWith("}")) {
-	    	  int firstCounter =  message.indexOf('{');
-	    	  int lastCounter = message.lastIndexOf('}');
-	    	  String label = message.substring(0, firstCounter);
-	    	  logElementsMap.put(Constants.TITLE, label);
-	    	  message = message.substring(firstCounter,lastCounter+1);
-	      }
-	      if((message.startsWith("{"))) { 
-			
- 			 mapObj = new Gson().fromJson(
-					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
-					);
- 			 if(parameters != null) {
-			  hashMapper(mapObj,mapSingleLevel,lstParam);
-			  logElementsMap.putAll(mapSingleLevel);
- 			 }
-			 
-		  }
-	     if(mapObj != null) 
-		   logElementsMap.put(Constants.MESSAGE, mapObj);
-	     else 
-	    	 logElementsMap.put(Constants.MESSAGE, message);
-		return logElementsMap;
-	}
+		      if(message.startsWith("[")) {
+		    	  //Delete [ ] from message
+		    	 List<?> lstObject =  new Gson().fromJson(
+						  message, new TypeToken<List<Object>>() {}.getType()
+						);
+		    	 logElementsMap.putAll(mapSingleLevel);
+		    	 logElementsMap.put(Constants.MESSAGE, lstObject);
+		      }else {
+		      // message with label followed by json string 
+		      if(!message.startsWith("{") && message.contains("{") && message.endsWith("}")) {
+		    	  int firstCounter =  message.indexOf('{');
+		    	  int lastCounter = message.lastIndexOf('}');
+		    	  String label = message.substring(0, firstCounter);
+		    	  logElementsMap.put(Constants.TITLE, label);
+		    	  message = message.substring(firstCounter,lastCounter+1);
+		      }
+		      if((message.startsWith("{"))) { 
+				
+	 			 mapObj = new Gson().fromJson(
+						  message, new TypeToken<HashMap<String, Object>>() {}.getType()
+						);
+	 			 if(parameters != null && lstParam.size() != 0) {
+				  hashMapper(mapObj,mapSingleLevel,lstParam);
+	 			 }
+	 			logElementsMap.putAll(mapSingleLevel);
+			  }
+		     if(mapObj != null) 
+		    	 logElementsMap.put(Constants.MESSAGE, mapObj);
+		     else 
+		    	 logElementsMap.put(Constants.MESSAGE, message);
+		    }
+	  }
+	return logElementsMap;
+   }
 	
 	private Map<String,Object> hashMapper(final Map<String, Object> jsonMap, final Map<String, Object> singleLevelMap, 
 			final List<Object> params) throws ParseException {
