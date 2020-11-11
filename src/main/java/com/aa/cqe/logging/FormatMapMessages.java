@@ -69,7 +69,12 @@ public class FormatMapMessages {
 	    	//if first parameter is a class
 		    if(lstParam.get(0) instanceof Object && !(lstParam.get(0) instanceof String)) {
 		    	logElementsMap.put(Constants.TITLE, message);
+		    	try {
 		    	message = new Gson().toJson(lstParam.get(0)).toString();
+		    	}catch(Exception ex) {
+		    		//swallow the exception so that if it's object but not in json format it will behave like simple message
+		    		message = lstParam.get(0).toString();
+		    	}
 		    	lstParam.remove(0);
 		    }
 	    	
