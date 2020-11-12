@@ -78,40 +78,42 @@ public class FormatMapMessages {
 		    	lstParam.remove(0);
 		    }
 	    	
-	    	//if first parameter is json String
-		    else if(lstParam.get(0).toString().startsWith("{")) {
-		    	logElementsMap.put(Constants.TITLE, message);
-		    	message = lstParam.get(0).toString();
-		    	lstParam.remove(0);
-		    	
-		    }else if(lstParam.get(0).toString().startsWith("[")) {
-		    	logElementsMap.put(Constants.TITLE, message);
-		    	//Delete [ ] from message
-		    	message = lstParam.get(0).toString();
-		    	lstParam.remove(0);
-		   }		 
-	    	if(lstParam.size()>0) {
-	    		String filterParam = lstParam.get(0).toString();
-			    String[] filterStr = filterParam.split(":");
-			    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
+			if(lstParam.size()>0 && lstParam.get(0)!=null) {
+		    	//if first parameter is json String
+			     if( lstParam.get(0).toString().startsWith("{")) {
+			    	logElementsMap.put(Constants.TITLE, message);
+			    	message = lstParam.get(0).toString();
 			    	lstParam.remove(0);
-			    	String[] filterName = filterStr[1].split(",");
-			    	for(int i=0;i < filterName.length; i++) {
-			    		filters.add(filterName[i]);
-			    	}
-			     }
-	    	
-			    //String with key value for logs
-			    List<Object> mapList = lstParam.stream().filter(x->x.toString().contains(":")).collect(Collectors.toList());
-			    for(Object pair : mapList) {
-			    	String strPair = pair.toString();
-			    	int index = strPair.indexOf(':');
-			    	String key = strPair.substring(0,index);
-			    	String value = strPair.substring(index+1, strPair.length());
-			    	mapSingleLevel.put(key, value);
-			    	lstParam.remove(pair);
-			    }
-	    	}
+			    	
+			    }else if(lstParam.get(0).toString().startsWith("[")) {
+			    	logElementsMap.put(Constants.TITLE, message);
+			    	//Delete [ ] from message
+			    	message = lstParam.get(0).toString();
+			    	lstParam.remove(0);
+			    }		 
+		    	
+		    		String filterParam = lstParam.get(0).toString();
+				    String[] filterStr = filterParam.split(":");
+				    
+				    if(filterStr[0].equalsIgnoreCase(Constants.FILTER) && !StringUtils.isEmpty(filterStr[1])) {
+				    	lstParam.remove(0);
+				    	String[] filterName = filterStr[1].split(",");
+				    	for(int i=0;i < filterName.length; i++) {
+				    		filters.add(filterName[i]);
+				    	}
+				    }
+		    	
+				    //String with key value for logs
+				    List<Object> mapList = lstParam.stream().filter(x->x.toString().contains(":")).collect(Collectors.toList());
+				    for(Object pair : mapList) {
+				    	String strPair = pair.toString();
+				    	int index = strPair.indexOf(':');
+				    	String key = strPair.substring(0,index);
+				    	String value = strPair.substring(index+1, strPair.length());
+				    	mapSingleLevel.put(key, value);
+				    	lstParam.remove(pair);
+				    }
+		    }
 	    }
 	    //Add the application constants 
 	    logElementsMap.put(Constants.FILTERS, filters);
@@ -141,12 +143,19 @@ public class FormatMapMessages {
 	      }else {
 	      
 		      if(message.startsWith("[")) {
-		    	  //Delete [ ] from message
-		    	 List<?> lstObject =  new Gson().fromJson(
-						  message, new TypeToken<List<Object>>() {}.getType()
-						);
+		    	 List<?> lstObject = null;
+		    	 try {
+		    			 lstObject = new Gson().fromJson(
+						  message, new TypeToken<List<Object>>() {}.getType());
+		    	 }catch(Exception ex) {
+		    		 //swallow the exception 
+		    	 }
 		    	 logElementsMap.putAll(mapSingleLevel);
-		    	 logElementsMap.put(Constants.MESSAGE, lstObject);
+		    	 if(lstObject != null)
+		    		 logElementsMap.put(Constants.MESSAGE, lstObject);
+		    	 else
+		    		 logElementsMap.put(Constants.MESSAGE, message);
+		    	 
 		      }else {
 		      // message with label followed by json string 
 		      if(!message.startsWith("{") && message.contains("{") && message.endsWith("}")) {
