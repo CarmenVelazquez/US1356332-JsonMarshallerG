@@ -39,6 +39,7 @@ public class FormatMessageTest {
 		
 	}
 	@Test
+	//log.info(json String,"param1","param2")
 	public void getFormattedMessageTest() throws ParseException, IOException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		String[] params = new String[] {"filter:SRE,SECURITY", "event","trackingID"};
@@ -51,6 +52,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(json String,"param1","param2")
 	public void getFormattedMessageWithoutFilterTest() throws ParseException, IOException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		String[] params = new String[] {"fltNum","trackingID"};
@@ -62,6 +64,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error(error json message)
 	public void getFormattedErrorMessageTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -72,6 +75,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error(error json msg,"filter:SRE")
 	public void getFormattedErrorMessageWithFilterTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -82,15 +86,17 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("String message","filter:SRE")
 	public void getFormattedSimpleMessageTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
-		String message = "Messages : This is the Simmple Message" + " Just to Test";
+		String message = "Messages : This is the Simple Message" + " Just to Test";
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
 		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
 	@Test
+	//log.info("String message with digits","filer:SRE")
 	public void getFormattedSimpleMessageWithEqualSighTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simple Message = " + "12";
@@ -100,6 +106,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error("String Error message with digits","filer:SRE")
 	public void getFormattedSimpleMessageWithSimpleErrorTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simple Error Message = " + "12";
@@ -109,6 +116,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json string")
 	public void getFormattedJsonWithoutParamTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -118,6 +126,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json String with Array with start from [")
 	public void getFormattedJsonArrayTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/contractMonth/contractMonth.json"), StandardCharsets.UTF_8);
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
@@ -128,6 +137,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json String with Array with start from [","param1","param2")
 	public void getFormattedJsonWithOtherTypes() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/rules/Result.json"), StandardCharsets.UTF_8);
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
@@ -140,6 +150,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(String label + Object,"Param1","Param2")
 	public void getStringWithJSON() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/rules/Result.json"), StandardCharsets.UTF_8);
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
@@ -153,6 +164,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(String label,Object,"Param1","Param2")
 	public void getStringWithFirstParamIsJSON() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -164,6 +176,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(String label,Object,"Param1","Param2")
 	public void getStringWithFirstParamIsObject() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
 		JsonTransformer<FlightEvent> transformer = new JsonTransformerImpl<>();
@@ -178,6 +191,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(String label,String,"Param1","Param2")
 	public void getStringWithFirstParamIsCustomObject() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
 		JsonTransformer<FlightEvent> transformer = new JsonTransformerImpl<>();
@@ -196,6 +210,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(String label,Object,"Param1","Param2")
 	public void getStringWithParamKeyValue() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/css/flightDetails2.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
