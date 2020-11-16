@@ -23,6 +23,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.lang.Nullable;
 
+import com.aa.cqe.flight.pojo.Flight;
+import com.aa.cqe.flight.pojo.FlightEvent;
+import com.aa.cqe.flight.service.JsonTransformer;
+import com.aa.cqe.flight.service.JsonTransformerImpl;
+import com.aa.cqe.flightwrap.FlightWrapper;
+import com.aa.cqe.utility.Constants;
 import com.google.gson.GsonBuilder;
 
 public class FormatMessageTest {
@@ -33,6 +39,7 @@ public class FormatMessageTest {
 		
 	}
 	@Test
+	//log.info(json String,"param1","param2")
 	public void getFormattedMessageTest() throws ParseException, IOException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		String[] params = new String[] {"filter:SRE,SECURITY", "event","trackingID"};
@@ -45,6 +52,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info(json String,"param1","param2")
 	public void getFormattedMessageWithoutFilterTest() throws ParseException, IOException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		String[] params = new String[] {"fltNum","trackingID"};
@@ -56,6 +64,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error(error json message)
 	public void getFormattedErrorMessageTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -66,6 +75,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error(error json msg,"filter:SRE")
 	public void getFormattedErrorMessageWithFilterTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/errors/errorMsg.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -76,15 +86,17 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("String message","filter:SRE")
 	public void getFormattedSimpleMessageTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
-		String message = "Messages : This is the Simmple Message" + " Just to Test";
+		String message = "Messages : This is the Simple Message" + " Just to Test";
 		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
 		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,message,new String[] {"filter:SRE"}));
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
 	@Test
+	//log.info("String message with digits","filer:SRE")
 	public void getFormattedSimpleMessageWithEqualSighTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simple Message = " + "12";
@@ -94,6 +106,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.error("String Error message with digits","filer:SRE")
 	public void getFormattedSimpleMessageWithSimpleErrorTest() throws IOException, ParseException {
 		formatMessage = new FormatMapMessages();
 		String message = "Messages : This is the Simple Error Message = " + "12";
@@ -103,6 +116,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json string")
 	public void getFormattedJsonWithoutParamTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/out.json"), StandardCharsets.UTF_8);
 		formatMessage = new FormatMapMessages();
@@ -112,6 +126,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json String with Array with start from [")
 	public void getFormattedJsonArrayTest() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/contractMonth/contractMonth.json"), StandardCharsets.UTF_8);
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
@@ -122,6 +137,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
+	//log.info("json String with Array with start from [","param1","param2")
 	public void getFormattedJsonWithOtherTypes() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/rules/Result.json"), StandardCharsets.UTF_8);
 		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
@@ -133,7 +149,80 @@ public class FormatMessageTest {
 		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
 	}
 	
-	private LogEvent getEvent(String threadName, long threadId, Level level, String message, @Nullable String[] parameters) {
+	@Test
+	//log.info(String label + Object,"Param1","Param2")
+	public void getStringWithJSON() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/rules/Result.json"), StandardCharsets.UTF_8);
+		//exampleRequest = exampleRequest.substring(1,exampleRequest.length()-2);
+		formatMessage = new FormatMapMessages();
+		//assertEquals(fmtMessage.get("cause"),", CCS API Throwing Error because Duplicate method for exception");
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :" + exampleRequest,new String[] {"trackingID","sequenceNumber"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "843130548114136418758756864566");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	@Test
+	//log.info(String label,Object,"Param1","Param2")
+	public void getStringWithFirstParamIsJSON() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :", new Object[] {exampleRequest,"trackingID","sequenceNumber"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "414d512046484d5154433120202020205eb5e311240e5fdf");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	@Test
+	//log.info(String label,Object,"Param1","Param2")
+	public void getStringWithFirstParamIsObject() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
+		JsonTransformer<FlightEvent> transformer = new JsonTransformerImpl<>();
+		FlightEvent flightEvent =   transformer.unmarshallEvent(exampleRequest, FlightEvent.class);
+		Flight flightJsonRequest  = flightEvent.getFlight();
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :", new Object[] {flightJsonRequest,"trackingID","sequenceNumber"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "414d512046484d5154433120202020205eb5e311240e5fdf");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	@Test
+	//log.info(String label,Json String,"Param1","Param2")
+	public void getStringWithFirstParamIsCustomObject() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
+		JsonTransformer<FlightEvent> transformer = new JsonTransformerImpl<>();
+		FlightEvent flightEvent =   transformer.unmarshallEvent(exampleRequest, FlightEvent.class);
+		FlightWrapper flightWrapper = new FlightWrapper();		
+		Flight flightJsonRequest  = flightEvent.getFlight();
+		flightWrapper.setCqeTrackingID("123422323210002390000");
+		flightWrapper.setFlight(flightJsonRequest);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :", new Object[] {flightWrapper,"cqeTrackingID","trackingID","sequenceNumber"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "414d512046484d5154433120202020205eb5e311240e5fdf");
+		assertEquals(fmtMessage.get("cqeTrackingID"), "123422323210002390000");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	@Test
+	//log.info(String label,Object,"Param1","Param2")
+	public void getStringWithParamKeyValue() throws IOException, ParseException {
+		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/css/flightDetails2.json"), StandardCharsets.UTF_8);
+		formatMessage = new FormatMapMessages();
+		Map<String,Object> fmtMessage = formatMessage.getFormattedMessage(getEvent("testThread",2l,Level.INFO,"Just Test with Title :", new Object[] {exampleRequest,"cqeTrackingID:123422323210002390000","trackingID:414d512046484d5154433120202020205eb5e311240e5fdf"}));
+		assertNotNull(fmtMessage.get("trackingID"));
+		assertEquals(fmtMessage.get("trackingID"), "414d512046484d5154433120202020205eb5e311240e5fdf");
+		assertEquals(fmtMessage.get("cqeTrackingID"), "123422323210002390000");
+		assertEquals(fmtMessage.get(Constants.TITLE),"Just Test with Title :");
+		System.out.println("Messages : " +  new GsonBuilder().create().toJson(fmtMessage));
+	}
+	
+	private LogEvent getEvent(String threadName, long threadId, Level level, String message, @Nullable Object[] parameters) {
 		return new LogEvent() {
 			
 			@Override
