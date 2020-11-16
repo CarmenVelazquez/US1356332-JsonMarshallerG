@@ -191,7 +191,7 @@ public class FormatMessageTest {
 	}
 	
 	@Test
-	//log.info(String label,String,"Param1","Param2")
+	//log.info(String label,Json String,"Param1","Param2")
 	public void getStringWithFirstParamIsCustomObject() throws IOException, ParseException {
 		exampleRequest = FileUtils.readFileToString(new File("./src/test/resources/example/flight/cancel.json"), StandardCharsets.UTF_8);
 		JsonTransformer<FlightEvent> transformer = new JsonTransformerImpl<>();
