@@ -1,0 +1,116 @@
+Configutation:
+  status: WARN
+  name: CQEEventingConsumer
+  packages: com.aa.cqe.qla
+  Properties:
+    Property:
+      - name: log-path
+        value: "/home/LogFiles/Application/jsonUnmarshaller/"
+        #value: "c:/CQEEventingEngineLogs2/logs"
+      - name: archive
+        value: ${log-path}/archive
+        
+  thresholdFilter:
+    level: Info
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      JSONEventLayout: 
+        locationInfo: true
+
+    RollingFile:
+      - name: debugLog
+        fileName: ${log-path}/CQEEventingConsumer-debug.log
+        filePattern: "${archive}/CQEEventingConsumer-debug.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        LevelRangeFilter:
+          minLevel: "debug"
+          maxLevel: "debug"
+          onMatch: "ACCEPT"
+          onMismatch: "DENY"
+        JSONEventLayout: 
+          locationInfo: true       
+
+        DefaultRolloverStrategy:
+          max: '30'
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 499 MB
+      - name: infoLog
+        fileName: ${log-path}/CQEEventingConsumer-info.log
+        filePattern: "${archive}/$${date:yyyy-MM}/CQEEventingConsumer-info-%d{MM-dd-yyyy}-%i.log.gz"
+        LevelRangeFilter:
+          minLevel: "info"
+          maxLevel: "info"
+          onMatch: "ACCEPT"
+          onMismatch: "DENY" 
+        JSONEventLayout: 
+          locationInfo: true   
+
+        DefaultRolloverStrategy:
+          max: '30'
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 499 MB 
+      - name: warnLog
+        fileName: ${log-path}/CQEEventingConsumer-warn.log
+        filePattern: "${archive}/CQEEventingConsumer-warn.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        LevelRangeFilter:
+          minLevel: "warn"
+          maxLevel: "warn"
+          onMatch: "ACCEPT"
+          onMismatch: "DENY"
+        JSONEventLayout: 
+          locationInfo: true     
+
+        DefaultRolloverStrategy:
+          max: '30'
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 499 MB     
+      - name: errorLog
+        fileName: ${log-path}/CQEEventingConsumer-error.log
+        filePattern: "${archive}/CQEEventingConsumer-error.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        LevelRangeFilter:
+          minLevel: "error"
+          onMatch: "ACCEPT"
+          onMismatch: "DENY"
+        JSONEventLayout: 
+          locationInfo: true     
+
+        DefaultRolloverStrategy:
+          max: '30'
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 499 MB
+      - name: springLog
+        fileName: ${log-path}/springLog.log
+        filePattern: "${archive}/springLog.log.%d{yyyy-MM-dd-hh-mm}.gz" 
+        PatternLayout:
+          pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS}[%-5level][%t] %c{1} - %msg%n"
+        Policies:
+          sizeBasedTriggeringPolicy:
+            size: "20MB"
+        DefaultRolloverStrategy:
+          Delete:
+            basePath: "${log-path}"
+            ifFileName:
+              glob: "springLog.log.*.gz"
+              ifAccumulatedFileCount:
+                exceeds: "5"
+
+  Loggers:
+      Root:
+        level: debug
+        AppenderRef:
+          - ref: Console_Appender
+      Logger:
+        - name: com.aa.qla.cqe
+          AppenderRef:
+            - ref: debugLog
+            - ref: infoLog
+            - ref: warnLog
+            - ref: errorLog
+        - name: org.springframework
+          AppenderRef:
+            - ref: springLog

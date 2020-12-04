@@ -3,6 +3,9 @@ package com.aa.cqe.logging;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Future;
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
@@ -12,6 +15,8 @@ import org.apache.logging.log4j.core.layout.AbstractStringLayout;
 
 import com.aa.cqe.utility.PropertyReader;
 import com.google.gson.GsonBuilder;
+
+import ch.qos.logback.core.util.ExecutorServiceUtil;
 
 @Plugin(name = "JSONEventLayout", category = "Core", elementType = "layout", printObject = true)
 public class JSONEventLayout extends AbstractStringLayout {
@@ -36,8 +41,10 @@ public class JSONEventLayout extends AbstractStringLayout {
     	FormatMapMessages fmtMessage = new FormatMapMessages();
     	Map<String, Object> formatedString = null;
 		try {
-			formatedString = fmtMessage.getFormattedMessage(event);
-		} catch (org.json.simple.parser.ParseException | IOException e) {
+			Future<Map<String,Object>> logMap =  fmtMessage.getFormattedMessage(event);
+			if(logMap.isDone())
+				formatedString = logMap.get();
+		} catch (org.json.simple.parser.ParseException | IOException | InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
