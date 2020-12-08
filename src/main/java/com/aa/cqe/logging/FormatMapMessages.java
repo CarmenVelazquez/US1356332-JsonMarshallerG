@@ -10,21 +10,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.stream.Collector;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.core.LogEvent;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.util.StringUtils;
 
 import com.aa.cqe.utility.Constants;
@@ -36,10 +33,12 @@ import com.google.gson.reflect.TypeToken;
 
 public class FormatMapMessages {
 	
+	private LogEvent event;
 	private PropertyReader propertyReader = null;
 	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	
-	public Map<String,Object> getFormattedMessage(LogEvent event) throws ParseException, IOException {
+	@Async
+	public Future<Map<String,Object>> getFormattedMessage(LogEvent event) throws ParseException, IOException {
 		
 		Map<String,Object> mapSingleLevel = new HashMap<>();
 	    Map<String, Object> mapObj = null;
@@ -181,7 +180,7 @@ public class FormatMapMessages {
 		    	 logElementsMap.put(Constants.MESSAGE, message);
 		    }
 	  }
-	return logElementsMap;
+	return new AsyncResult<Map<String,Object>>(logElementsMap);
    }
 	
 	private Map<String,Object> hashMapper(final Map<String, Object> jsonMap, final Map<String, Object> singleLevelMap, 
@@ -219,4 +218,6 @@ public class FormatMapMessages {
 	    }
 	    return singleLevelMap;
 	}
+
+	
 }	
