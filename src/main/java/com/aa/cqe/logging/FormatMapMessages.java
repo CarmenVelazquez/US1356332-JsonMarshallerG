@@ -33,20 +33,18 @@ import com.google.gson.reflect.TypeToken;
 
 public class FormatMapMessages {
 	
-	private LogEvent event;
 	private PropertyReader propertyReader = null;
 	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	
 	@Async
-	public Future<Map<String,Object>> getFormattedMessage(LogEvent event) throws ParseException, IOException {
+	public Future<Map<String,Object>> getFormattedMessage(LogEvent event) throws ParseException, IOException, InterruptedException {
 		
 		Map<String,Object> mapSingleLevel = new HashMap<>();
 	    Map<String, Object> mapObj = null;
 		
 		String regex =  "(\\r\\n|\\t|\\\\|\\u003d|\\u0027)";
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
-		
-	    ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of(Constants.UTC));
+		//DateTimeFormatter fmt = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
+	    //ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.now(), ZoneId.of(Constants.UTC));
 	    propertyReader = PropertyReader.getInstance();
 	    List<String> filters = new ArrayList<>();
 	    
@@ -129,7 +127,7 @@ public class FormatMapMessages {
 					  message, new TypeToken<HashMap<String, Object>>() {}.getType()
 					);
 	    	   
-	    	   List<Object> errLstParam =  new LinkedList(Arrays.asList(new String[] {"cause","stackTrace"}));
+	    	   List<Object> errLstParam =  new LinkedList<>(Arrays.asList(new String[] {"cause","stackTrace"}));
 	    	   hashMapper(mapObj,mapSingleLevel,errLstParam);
 	    	   
 	    	 //convert decimal value into integer
