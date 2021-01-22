@@ -17,55 +17,45 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MessageObjects {
-	@JsonProperty("affectedType")
-	private String affectedType;
-	@JsonProperty("affectedStartDateTime")
-	private String affectedStartDateTime;
 	@JsonProperty("pickups")
-	private List<PickUps> pickups;
-	@JsonProperty("affectedBy")
-	private AffectedBy affectedBy;
+	private List<MessageKey> pickups;
+	@JsonProperty("drop")
+	private List<MessageKey> drop;
 	
-	@JsonProperty("affectedType")
-	public String getAffectedType() {
+	private MessageKey affectedBy;
+	
+    private ActivityType affectedType;
+	
+	public ActivityType getAffectedType() {
 		return affectedType;
-	}	
-	
-	@JsonProperty("affectedType")
-	public void setAffectedType(String affectedType) {
+	}
+
+	public void setAffectedType(ActivityType affectedType) {
 		this.affectedType = affectedType;
-	}	
-	
-	@JsonProperty("affectedStartDateTime")
-	public String getAffectedStartDateTime() {
-		return affectedStartDateTime;
-	}	
-	
-	@JsonProperty("affectedStartDateTime")
-	public void setAffectedStartDateTime(String affectedStartDateTime) {
-		this.affectedStartDateTime = affectedStartDateTime;
-	}	
-	
-	@JsonProperty("pickups")	
-	public List<PickUps> getPickups() {
+	}
+
+	public MessageKey getAffectedBy() {
+		return affectedBy;
+	}
+
+	public void setAffectedBy(MessageKey affectedBy) {
+		this.affectedBy = affectedBy;
+	}
+
+	public List<MessageKey> getPickups() {
 		return pickups;
 	}
-	
-	@JsonProperty("pickups")
-	public void setPickups(List<PickUps> pickups) {
+
+	public void setPickups(List<MessageKey> pickups) {
 		this.pickups = pickups;
 	}
 
-	@JsonProperty("affectedBy")
-	public AffectedBy getAffectedBy() {
-		return affectedBy;
-	}	
-	
-	@JsonProperty("affectedBy")
-	public void setAffectedBy(AffectedBy affectedBy) {
-		this.affectedBy = affectedBy;
+	public List<MessageKey> getDrop() {
+		return drop;
 	}
-	
-	
-	
+
+	public void setDrop(List<MessageKey> drop) {
+		this.drop = drop;
+	}
+
 }

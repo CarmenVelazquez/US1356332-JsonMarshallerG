@@ -14,9 +14,18 @@ public class Request {
 	private List<String> ruleTypes;
 	@JsonProperty("pickupDutyList")
 	private List<PickupDutyList> pickupDutyList;
+	@JsonProperty("dropDutyList")
+	private List<DropList> dropDutyList;
 	@JsonProperty("requestId")
+	
 	public int getRequestId() {
 		return requestId;
+	}
+	public List<DropList> getDropDutyList() {
+		return dropDutyList;
+	}
+	public void setDropDutyList(List<DropList> dropDutyList) {
+		this.dropDutyList = dropDutyList;
 	}
 	@JsonProperty("requestId")
 	public void setRequestId(int requestId) {
